@@ -1,4 +1,4 @@
-
+package com;
 
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -23,7 +23,7 @@ public class confirmation {
     }
 
     public void retourAcceuil(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("acceuil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/acceuil.fxml"));
         try {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

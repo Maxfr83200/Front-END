@@ -1,4 +1,4 @@
-
+package com;
 
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -22,7 +22,7 @@ public class detailProduit {
     }
 
     public void retourMain(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainscreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mainscreen.fxml"));
         try {
             Parent root = loader.load();
             mainController mainCtrl = loader.getController();

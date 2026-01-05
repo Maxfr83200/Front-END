@@ -1,4 +1,4 @@
-
+package com;
 
 import javafx.scene.control.Label;
 

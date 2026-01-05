@@ -1,4 +1,4 @@
-
+package com;
 
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -22,7 +22,7 @@ public class mainController {
     }
 
     public void goDetail(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("detailProduit.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/detailProduit.fxml"));
         try {
             Parent root = loader.load();
             mainController mainCtrl = loader.getController();
@@ -40,7 +40,7 @@ public class mainController {
     }
 
     public void goConfirme(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("confirmation.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/confirmation.fxml"));
         try {
             Parent root = loader.load();
             confirmation mainCtrl = loader.getController();
@@ -58,7 +58,7 @@ public class mainController {
     }
 
     public void retourAcceuil(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("acceuil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/acceuil.fxml"));
         try {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#startCommand" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.acceuilController">
+   <children>
+
+      <Label fx:id="instructionLabel" layoutX="390.0" layoutY="489.0" prefHeight="254.0" prefWidth="1074.0" text="Touche pour commencer">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+
+      <Button layoutX="583.0" layoutY="891.0" mnemonicParsing="false" onAction="#switchToFrench" prefHeight="83.0" prefWidth="148.0" text="FR">
+         <font>
+            <Font size="53.0" />
+         </font>
+      </Button>
+
+      <Button layoutX="834.0" layoutY="894.0" mnemonicParsing="false" onAction="#switchToEnglish" prefHeight="113.0" prefWidth="183.0" text="ENG">
+         <font>
+            <Font size="53.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="helpButton" layoutX="1135.0" layoutY="893.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="183.0" text="AIDE">
+         <font>
+            <Font size="53.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="466.0" fitWidth="870.0" layoutX="591.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Cacayalogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-
+package com;
 
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -42,7 +42,7 @@ public class acceuilController {
 
     @FXML
     public void startCommand(MouseEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainscreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mainscreen.fxml"));
         try {
             Parent root = loader.load();
             mainController mainCtrl = loader.getController();
