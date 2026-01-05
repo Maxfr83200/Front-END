@@ -15,10 +15,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/acceuil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/accueil.fxml"));
         
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setTitle("JavaFX App");
+        Scene scene = new Scene(root, 1900, 1070);
+        stage.setTitle("Borne Cacaya");
         stage.setScene(scene);
         stage.show();
     }

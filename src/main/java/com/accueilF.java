@@ -14,7 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class acceuilController {
+public class accueilF {
 
     @FXML
     private Label instructionLabel;
@@ -45,7 +45,7 @@ public class acceuilController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mainscreen.fxml"));
         try {
             Parent root = loader.load();
-            mainController mainCtrl = loader.getController();
+            mainscreenF mainCtrl = loader.getController();
             mainCtrl.setLanguage(isFrench);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

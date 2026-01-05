@@ -1,6 +1,6 @@
+com\accueilF.class
 com\App.class
-com\acceuilController.class
+com\panierF.class
 com\waintingScreen.class
-com\mainController.class
 com\detailProduit.class
-com\confirmation.class
+com\mainscreenF.class
