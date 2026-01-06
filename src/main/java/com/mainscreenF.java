@@ -21,7 +21,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import java.util.ArrayList;
+import javafx.scene.text.Font;
 import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -66,6 +67,59 @@ public class mainscreenF {
     private final Gson gson = new Gson();
 
 
+    @FXML
+    private VBox menuContainer;
+
+    @FXML
+    private VBox cartContainer;
+
+    @FXML
+    private Label price;
+
+    private double cartTotal = 0.0;
+
+
+    private void updateTotalprice() {
+        price.setText("Total : " + cartTotal + "0 \u20AC");
+    }
+
+
+    private void addCart(MenuItem item) {
+
+        cartContainer.getChildren().add(createCardtoCart(item));
+        cartTotal += item.getPrice();
+        updateTotalprice();
+
+    }
+
+
+
+
+    private HBox createCardtoCart(MenuItem item) {
+
+
+        VBox texts = new VBox(4);
+        Label label = new Label(
+                " - " + item.getName() + "  -  " + item.getPrice() + "0 euros"
+        );
+        label.setFont(Font.font(18));
+
+        texts.getChildren().add(label);
+
+        HBox card = new HBox(8, texts);
+
+        card.setMinHeight(20);
+        card.setPrefHeight(30);
+
+        card.setMaxWidth(Double.MAX_VALUE);
+
+
+        return card;
+    }
+
+
+
+
 
     public void goConfirme(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/panier.fxml"));
@@ -103,11 +157,11 @@ public class mainscreenF {
     @FXML
     public void initialize() {
         filterAll(null);
+        updateTotalprice();
     }
 
 
-    @FXML
-    private VBox menuContainer;
+
 
     public void filterAll(ActionEvent e) {
         fetchAndDisplay(API_BASE + "/menu");
@@ -179,28 +233,25 @@ public class mainscreenF {
         System.out.println("Hauteur finale du conteneur : " + menuContainer.getBoundsInParent().getHeight());
     }
 
+
+
+
+
     private HBox createCard(MenuItem item) {
         ImageView img = new ImageView();
         img.setFitWidth(120);
         img.setFitHeight(120);
         img.setPreserveRatio(true);
 
-        String imagePath = item.getImageUrl(); // ex: "images/ramen.png"
+        String imagePath = item.getImageUrl();
 
-        /*if (imagePath != null && !imagePath.isBlank()) {
-            Image image = new Image(
-                    getClass().getResourceAsStream("/" + imagePath)
-            );
-            img.setImage(image);
-        }*/
         if (imagePath != null && !imagePath.isBlank()) {
-            // Correction : Vérifier si la ressource existe avant de l'utiliser
+
             var inputStream = getClass().getResourceAsStream("/" + imagePath);
             if (inputStream != null) {
                 Image image = new Image(inputStream);
                 img.setImage(image);
             } else {
-                // Optionnel : Mettre une image par défaut si le fichier est manquant
                 System.err.println("Image introuvable : " + imagePath);
             }
         }
@@ -219,6 +270,8 @@ public class mainscreenF {
 
         card.setMaxWidth(Double.MAX_VALUE);
         card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
+        card.setOnMouseClicked(e -> addCart(item));
+
         return card;
     }
 }
