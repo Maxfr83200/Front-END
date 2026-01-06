@@ -1,5 +1,6 @@
 package com;
 
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,8 +33,32 @@ public class mainscreenF {
 
     private Boolean isFrench;
 
+    @FXML private Button btnTous;
+    @FXML private Button btnPlats;
+    @FXML private Button btnSnacks;
+    @FXML private Button btnBoissons;
+    @FXML private Button btnDesserts;
+    @FXML private Button btnPayer;
+    
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
+
+        if (Boolean.TRUE.equals(isFrench)) {
+            // Version Française
+            if(btnTous != null) btnTous.setText("Tous");
+            if(btnPlats != null) btnPlats.setText("Plats");
+            if(btnSnacks != null) btnSnacks.setText("Snacks");
+            if(btnBoissons != null) btnBoissons.setText("Boissons");
+            if(btnPayer != null) btnPayer.setText("Paiement");
+        } else {
+            // Version Anglaise
+            if(btnTous != null) btnTous.setText("All");
+            if(btnPlats != null) btnPlats.setText("Dishes");
+            if(btnSnacks != null) btnSnacks.setText("Snacks");
+            if(btnBoissons != null) btnBoissons.setText("Drinks");
+            if(btnPayer != null) btnPayer.setText("Payement");
+        }
+        if(btnDesserts != null) btnDesserts.setText("Desserts");
     }
 
     private static final String API_BASE = "http://localhost:8080";
@@ -51,7 +76,6 @@ public class mainscreenF {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
-            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
             
@@ -67,7 +91,6 @@ public class mainscreenF {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
-            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
             
@@ -165,13 +188,12 @@ public class mainscreenF {
 
         VBox texts = new VBox(4);
         texts.getChildren().addAll(
-                new Label(item.getName() + " - " + item.getPrice() + " euros"),
+                new Label(item.getName() + " - " + item.getPrice() + "euros"),
                 new Label(item.getDescription()),
                 new Label(item.getCalories() + " kcal")
         );
 
         HBox card = new HBox(12, img, texts);
-        card.setMaxWidth(Double.MAX_VALUE);
         card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
         return card;
     }
