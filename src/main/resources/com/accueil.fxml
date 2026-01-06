@@ -35,7 +35,7 @@
       </Button>
       <ImageView fitHeight="466.0" fitWidth="870.0" layoutX="759.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/Cacayalogo.png" />
+            <Image url="@images/Cacayalogo.png" />
          </image>
       </ImageView>
    </children>

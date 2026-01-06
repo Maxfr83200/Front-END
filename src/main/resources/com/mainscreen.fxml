@@ -1,21 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mainscreenF">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mainscreenF">
    <children>
-      <Label fx:id="mainTextTitle" layoutX="476.0" layoutY="67.0" text="COMMANDE BATARD" textAlignment="CENTER">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Label>
-      <Button layoutX="1573.0" layoutY="858.0" mnemonicParsing="false" onAction="#goConfirme" prefHeight="71.0" prefWidth="233.0" text="Panier">
-         <font>
-            <Font size="45.0" />
-         </font>
-      </Button>
+      <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1112.0" prefWidth="323.0" style="-fx-background-color: #dac661;">
+         <children>
+            <ImageView fitHeight="294.0" fitWidth="294.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/Cacayalogo.png" />
+               </image>
+            </ImageView>
+      
+            <VBox fx:id="leftMenu" layoutX="40.0" layoutY="437.0" prefHeight="298.0" prefWidth="236.0" spacing="18.0" style="-fx-padding: -5;">
+      
+               <Button onAction="#filterAll" prefHeight="82.0" prefWidth="289.0" style="-fx-background-color: #dac661;" text="All" textAlignment="CENTER">
+                  <font>
+                     <Font size="33.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </Button>
+      
+               <Button onAction="#filterPlats" prefHeight="76.0" prefWidth="325.0" style="-fx-background-color: #dac661;" text="Plats" textAlignment="CENTER">
+                  <font>
+                     <Font size="33.0" />
+                  </font>
+               </Button>
+      
+               <Button onAction="#filterSnacks" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Snacks" textAlignment="CENTER">
+                  <font>
+                     <Font size="33.0" />
+                  </font>
+               </Button>
+      
+               <Button onAction="#filterBoissons" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Boissons" textAlignment="CENTER">
+                  <font>
+                     <Font size="33.0" />
+                  </font>
+               </Button>
+      
+               <Button onAction="#filterDesserts" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Desserts" textAlignment="CENTER">
+                  <font>
+                     <Font size="33.0" />
+                  </font>
+               </Button>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+      
+            </VBox>
+         </children>
+      </Pane>
+      <Line endX="-107.0" endY="838.0" layoutX="427.0" layoutY="270.0" startX="-107.0" startY="-274.0" strokeWidth="3.0" />
+      <VBox fx:id="menuContainer" layoutX="390.0" layoutY="84.0" prefHeight="924.0" prefWidth="1012.0" />
+      <Pane layoutX="1461.0" layoutY="121.0" prefHeight="980.0" prefWidth="422.0">
+         <children>
+            <Pane layoutX="17.0" layoutY="14.0" prefHeight="740.0" prefWidth="385.0" style="-fx-background-color: #d7d4d4; -fx-padding: 50;">
+               <children>
+                  <Line endX="162.0" layoutX="188.0" layoutY="648.0" startX="-156.0" strokeWidth="2.0" />
+                  <Label layoutX="70.0" layoutY="662.0" prefHeight="62.0" prefWidth="118.0" text="Total :">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="194.0" layoutY="665.0" prefHeight="55.0" prefWidth="118.0" text=" 0,00 €">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goConfirme" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: #8ad04c; -fx-border-color: black;" text="Panier" textFill="WHITE">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
