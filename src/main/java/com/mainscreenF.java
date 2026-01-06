@@ -75,6 +75,11 @@ public class mainscreenF {
         }
     }
 
+    @FXML
+    public void initialize() {
+        filterAll(null);
+    }
+
 
     @FXML
     private VBox menuContainer;
@@ -84,19 +89,19 @@ public class mainscreenF {
     }
 
     public void filterPlats(ActionEvent e) {
-        // afficher seulement plats
+        fetchAndDisplay(API_BASE + "/menu/plats");
     }
 
     public void filterSnacks(ActionEvent e) {
-        // afficher seulement snacks
+        fetchAndDisplay(API_BASE + "/menu/snacks");
     }
 
     public void filterBoissons(ActionEvent e) {
-        // afficher seulement boissons
+        fetchAndDisplay(API_BASE + "/menu/boissons");
     }
 
     public void filterDesserts(ActionEvent e) {
-        // afficher seulement desserts
+        fetchAndDisplay(API_BASE + "/menu/desserts");
     }
 
 
