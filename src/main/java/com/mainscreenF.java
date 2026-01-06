@@ -39,7 +39,7 @@ public class mainscreenF {
     @FXML private Button btnBoissons;
     @FXML private Button btnDesserts;
     @FXML private Button btnPayer;
-    
+
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
 
@@ -164,11 +164,19 @@ public class mainscreenF {
     }
 
     private void refreshUI(List<MenuItem> items) {
+        System.out.println("Nombre d'articles reçus de l'API : " + items.size()); // DEBUG
         menuContainer.getChildren().clear();
+
+        // On s'assure que le VBox n'est pas bridé en hauteur avant d'ajouter les items
+        menuContainer.setPrefHeight(VBox.USE_COMPUTED_SIZE);
+        menuContainer.setMinHeight(VBox.USE_COMPUTED_SIZE);
 
         for (MenuItem item : items) {
             menuContainer.getChildren().add(createCard(item));
         }
+
+        // Debug : affichez la taille finale calculée après l'ajout
+        System.out.println("Hauteur finale du conteneur : " + menuContainer.getBoundsInParent().getHeight());
     }
 
     private HBox createCard(MenuItem item) {
@@ -179,11 +187,22 @@ public class mainscreenF {
 
         String imagePath = item.getImageUrl(); // ex: "images/ramen.png"
 
-        if (imagePath != null && !imagePath.isBlank()) {
+        /*if (imagePath != null && !imagePath.isBlank()) {
             Image image = new Image(
                     getClass().getResourceAsStream("/" + imagePath)
             );
             img.setImage(image);
+        }*/
+        if (imagePath != null && !imagePath.isBlank()) {
+            // Correction : Vérifier si la ressource existe avant de l'utiliser
+            var inputStream = getClass().getResourceAsStream("/" + imagePath);
+            if (inputStream != null) {
+                Image image = new Image(inputStream);
+                img.setImage(image);
+            } else {
+                // Optionnel : Mettre une image par défaut si le fichier est manquant
+                System.err.println("Image introuvable : " + imagePath);
+            }
         }
 
         VBox texts = new VBox(4);
@@ -194,6 +213,11 @@ public class mainscreenF {
         );
 
         HBox card = new HBox(12, img, texts);
+
+        card.setMinHeight(150);
+        card.setPrefHeight(150);
+
+        card.setMaxWidth(Double.MAX_VALUE);
         card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
         return card;
     }
