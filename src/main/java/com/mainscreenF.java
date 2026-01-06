@@ -51,6 +51,7 @@ public class mainscreenF {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
             
@@ -66,6 +67,7 @@ public class mainscreenF {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
             
@@ -163,12 +165,13 @@ public class mainscreenF {
 
         VBox texts = new VBox(4);
         texts.getChildren().addAll(
-                new Label(item.getName() + " - " + item.getPrice() + "euros"),
+                new Label(item.getName() + " - " + item.getPrice() + " euros"),
                 new Label(item.getDescription()),
                 new Label(item.getCalories() + " kcal")
         );
 
         HBox card = new HBox(12, img, texts);
+        card.setMaxWidth(Double.MAX_VALUE);
         card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
         return card;
     }

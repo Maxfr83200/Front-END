@@ -17,8 +17,9 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/accueil.fxml"));
         
-        Scene scene = new Scene(root, 1900, 1070);
+        Scene scene = new Scene(root);
         stage.setTitle("Borne Cacaya");
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
     }
