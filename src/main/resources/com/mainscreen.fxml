@@ -12,11 +12,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mainscreenF">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mainscreenF">
    <children>
-      <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1112.0" prefWidth="323.0" style="-fx-background-color: #dac661;">
+      <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1115.0" prefWidth="323.0" style="-fx-background-color: #8f2b29;">
          <children>
-            <ImageView fitHeight="294.0" fitWidth="294.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="294.0" fitWidth="304.0" layoutX="12.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Cacayalogo.png" />
                </image>
@@ -24,34 +24,34 @@
       
                   <VBox fx:id="leftMenu" layoutX="40.0" layoutY="437.0" prefHeight="298.0" prefWidth="236.0" spacing="18.0" style="-fx-padding: -5;">
       
-                     <Button fx:id="btnTous" onAction="#filterAll" prefHeight="82.0" prefWidth="289.0" style="-fx-background-color: #dac661;" text="All" textAlignment="CENTER">
+                     <Button fx:id="btnTous" onAction="#filterAll" prefHeight="82.0" prefWidth="289.0" style="-fx-background-color: #8f2b29;" text="Tout" textAlignment="CENTER">
                   <font>
-                     <Font size="33.0" />
+                     <Font name="Broadway" size="33.0" />
                   </font>
                   <VBox.margin>
                      <Insets />
                   </VBox.margin>
                </Button>
       
-                     <Button fx:id="btnPlats" onAction="#filterPlats" prefHeight="76.0" prefWidth="325.0" style="-fx-background-color: #dac661;" text="Plats" textAlignment="CENTER">
+                     <Button fx:id="btnPlats" onAction="#filterPlats" prefHeight="76.0" prefWidth="325.0" style="-fx-background-color: #8f2b29;" text="Plats" textAlignment="CENTER">
                   <font>
                      <Font size="33.0" />
                   </font>
                </Button>
       
-                     <Button fx:id="btnSnacks" onAction="#filterSnacks" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Snacks" textAlignment="CENTER">
+                     <Button fx:id="btnSnacks" onAction="#filterSnacks" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #8f2b29;" text="Snacks" textAlignment="CENTER">
                   <font>
                      <Font size="33.0" />
                   </font>
                </Button>
       
-                     <Button fx:id="btnBoissons" onAction="#filterBoissons" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Boissons" textAlignment="CENTER">
+                     <Button fx:id="btnBoissons" onAction="#filterBoissons" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #8f2b29;" text="Boissons" textAlignment="CENTER">
                   <font>
                      <Font size="30.0" />
                   </font>
                </Button>
       
-                     <Button fx:id="btnDesserts" onAction="#filterDesserts" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Desserts" textAlignment="CENTER">
+                     <Button fx:id="btnDesserts" onAction="#filterDesserts" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #8f2b29;" text="Desserts" textAlignment="CENTER">
                   <font>
                      <Font size="30.0" />
                   </font>
