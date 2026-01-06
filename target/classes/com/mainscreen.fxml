@@ -24,7 +24,7 @@
       
                   <VBox fx:id="leftMenu" layoutX="40.0" layoutY="437.0" prefHeight="298.0" prefWidth="236.0" spacing="18.0" style="-fx-padding: -5;">
       
-                     <Button onAction="#filterAll" prefHeight="82.0" prefWidth="289.0" style="-fx-background-color: #dac661;" text="All" textAlignment="CENTER">
+                     <Button fx:id="btnTous" onAction="#filterAll" prefHeight="82.0" prefWidth="289.0" style="-fx-background-color: #dac661;" text="All" textAlignment="CENTER">
                   <font>
                      <Font size="33.0" />
                   </font>
@@ -33,25 +33,25 @@
                   </VBox.margin>
                </Button>
       
-                     <Button onAction="#filterPlats" prefHeight="76.0" prefWidth="325.0" style="-fx-background-color: #dac661;" text="Plats" textAlignment="CENTER">
+                     <Button fx:id="btnPlats" onAction="#filterPlats" prefHeight="76.0" prefWidth="325.0" style="-fx-background-color: #dac661;" text="Plats" textAlignment="CENTER">
                   <font>
                      <Font size="33.0" />
                   </font>
                </Button>
       
-                     <Button onAction="#filterSnacks" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Snacks" textAlignment="CENTER">
+                     <Button fx:id="btnSnacks" onAction="#filterSnacks" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Snacks" textAlignment="CENTER">
                   <font>
                      <Font size="33.0" />
                   </font>
                </Button>
       
-                     <Button onAction="#filterBoissons" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Boissons" textAlignment="CENTER">
+                     <Button fx:id="btnBoissons" onAction="#filterBoissons" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Boissons" textAlignment="CENTER">
                   <font>
                      <Font size="33.0" />
                   </font>
                </Button>
       
-                     <Button onAction="#filterDesserts" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Desserts" textAlignment="CENTER">
+                     <Button fx:id="btnDesserts" onAction="#filterDesserts" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: #dac661;" text="Desserts" textAlignment="CENTER">
                   <font>
                      <Font size="33.0" />
                   </font>
@@ -81,7 +81,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goConfirme" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: #8ad04c; -fx-border-color: black;" text="Panier" textFill="WHITE">
+            <Button fx:id="btnPayer" layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goConfirme" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: #8ad04c; -fx-border-color: black;" text="Panier" textFill="WHITE">
                <font>
                   <Font size="45.0" />
                </font>
