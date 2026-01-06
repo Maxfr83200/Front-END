@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.input.MouseEvent;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -118,10 +119,28 @@ public class mainscreenF {
     }
 
 
+    public void goDetail(MouseEvent event, MenuItem item) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/detailplat.fxml"));
+        try {
+            Parent root = loader.load();
+            detailplatF ctrl = loader.getController();
+            ctrl.setLanguage(isFrench);
+            ctrl.setItem(item);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
-    public void goConfirme(ActionEvent event) {
+
+
+
+    public void goPanier(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/panier.fxml"));
         try {
             Parent root = loader.load();
@@ -270,7 +289,9 @@ public class mainscreenF {
 
         card.setMaxWidth(Double.MAX_VALUE);
         card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
-        card.setOnMouseClicked(e -> addCart(item));
+        card.setOnMouseClicked(e -> goDetail(e, item));
+
+
 
         return card;
     }

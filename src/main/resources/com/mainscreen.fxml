@@ -81,7 +81,7 @@
                   </ScrollPane>
                </children>
             </Pane>
-            <Button fx:id="btnPayer" layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goConfirme" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: #8ad04c; -fx-border-color: black;" text="Panier" textFill="WHITE">
+            <Button fx:id="btnPayer" layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goPanier" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: #8ad04c; -fx-border-color: black;" text="Panier" textFill="WHITE">
                <font>
                   <Font size="45.0" />
                </font>
