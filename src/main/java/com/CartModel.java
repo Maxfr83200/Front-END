@@ -7,8 +7,9 @@ public class CartModel {
 
     private static CartModel instance;
 
-    // MenuItem -> quantité
-    private final Map<MenuItem, Integer> items = new HashMap<>();
+    // clé = "itemId|protein"
+    private final Map<String, Integer> quantities = new HashMap<>();
+    private final Map<String, MenuItem> items = new HashMap<>();
 
     private CartModel() {}
 
@@ -19,27 +20,39 @@ public class CartModel {
         return instance;
     }
 
-    // ➕ Ajouter
-    public void addItem(MenuItem item, int qty) {
-        items.put(item, items.getOrDefault(item, 0) + qty);
+    private String buildKey(MenuItem item, String protein) {
+        return item.getId() + "|" + (protein == null ? "null" : protein);
     }
 
-    // ➖ Retirer
-    public void removeItem(MenuItem item) {
-        items.remove(item);
+    public void addItem(MenuItem item, String protein, int qty) {
+        String key = buildKey(item, protein);
+
+        items.putIfAbsent(key, item);
+        quantities.put(key, quantities.getOrDefault(key, 0) + qty);
     }
 
-    public Map<MenuItem, Integer> getItems() {
-        return items;
+    public Map<String, Integer> getQuantities() {
+        return quantities;
+    }
+
+    public MenuItem getItem(String key) {
+        return items.get(key);
+    }
+
+    public String getProteinFromKey(String key) {
+        String[] parts = key.split("\\|");
+        return "null".equals(parts[1]) ? null : parts[1];
     }
 
     public double getTotal() {
-        return items.entrySet().stream()
-                .mapToDouble(e -> e.getKey().getPrice() * e.getValue())
-                .sum();
-    }
-
-    public void clear() {
-        items.clear();
+        double total = 0;
+        for (String key : quantities.keySet()) {
+            MenuItem item = items.get(key);
+            int qty = quantities.get(key);
+            total += item.getPrice() * qty;
+        }
+        return total;
     }
 }
+
+

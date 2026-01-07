@@ -85,19 +85,30 @@ public class mainscreenF {
     private void refreshCartUI() {
         cartContainer.getChildren().clear();
 
-        cart.getItems().forEach((item, qty) -> {
-            cartContainer.getChildren().add(createCardtoCart(item, qty));
-        });
+        CartModel cart = CartModel.getInstance();
 
-        updateTotalprice();
+        for (String key : cart.getQuantities().keySet()) {
+            MenuItem item = cart.getItem(key);
+            int qty = cart.getQuantities().get(key);
+            String protein = cart.getProteinFromKey(key);
+
+            String text = qty + " x " + item.getName();
+            if (protein != null) text += " (" + protein + ")";
+            text += " - " + String.format("%.2f \u20AC", item.getPrice() * qty);
+
+            Label label = new Label(text);
+            label.setStyle("-fx-font-size: 18px;");
+            cartContainer.getChildren().add(label);
+        }
+
+        price.setText(
+                String.format("Total : %.2f \u20AC", cart.getTotal())
+        );
     }
 
 
 
-    private void addCart(MenuItem item) {
-        cart.addItem(item, 1);
-        refreshCartUI();
-    }
+
 
 
     CartModel cart = CartModel.getInstance();
@@ -276,7 +287,7 @@ public class mainscreenF {
 
         VBox texts = new VBox(4);
         texts.getChildren().addAll(
-                new Label(item.getName() + " - " + item.getPrice() + "euros"),
+                new Label(item.getName() + " - " + item.getPrice() + "0\u20AC"),
                 new Label(item.getDescription()),
                 new Label(item.getCalories() + " kcal")
         );

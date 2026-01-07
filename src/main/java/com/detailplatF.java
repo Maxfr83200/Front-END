@@ -6,14 +6,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
 
 public class detailplatF {
+
+    @FXML private HBox proteinBox;
+    @FXML private RadioButton rbPoulet;
+    @FXML private RadioButton rbBoeuf;
+    @FXML private RadioButton rbTofu;
+    @FXML private RadioButton rbCrevette;
+    @FXML private ToggleGroup proteinGroup;
+
 
 
     @FXML private Text quantityText;
@@ -47,11 +58,53 @@ public class detailplatF {
         }
     }
 
+
+
+    private void hideProteinOptions() {
+        proteinBox.setVisible(false);
+        proteinBox.setManaged(false);
+
+        rbPoulet.setDisable(true);
+        rbBoeuf.setDisable(true);
+        rbTofu.setDisable(true);
+        rbCrevette.setDisable(true);
+
+        rbPoulet.setSelected(false);
+        rbBoeuf.setSelected(false);
+        rbTofu.setSelected(false);
+        rbCrevette.setSelected(false);
+    }
+
+    private void showProteinOptions() {
+        proteinBox.setVisible(true);
+        proteinBox.setManaged(true);
+
+        rbPoulet.setDisable(false);
+        rbBoeuf.setDisable(false);
+        rbTofu.setDisable(false);
+        rbCrevette.setDisable(false);
+
+        rbBoeuf.setSelected(true);
+    }
+
+
+
+
+
+
     CartModel cart = CartModel.getInstance();
 
     @FXML
     private void addToCart(ActionEvent event) {
-        cart.addItem(item, quantity);
+        String protein = null;
+
+        if (item.isProteinRequired()) {
+            RadioButton selected =
+                    (RadioButton) proteinGroup.getSelectedToggle();
+            protein = selected != null ? selected.getText() : null;
+        }
+
+        CartModel.getInstance().addItem(item, protein, quantity);
         goMain(event);
     }
 
@@ -101,6 +154,12 @@ public class detailplatF {
             imagePlat.setImage(img);
         } else {
             imagePlat.setImage(null);
+        }
+
+        if (item.isProteinRequired()) {
+            showProteinOptions();
+        } else {
+            hideProteinOptions();
         }
     }
 }

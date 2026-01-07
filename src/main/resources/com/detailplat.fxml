@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,14 +15,14 @@
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.detailplatF">
    <children>
       <ImageView fx:id="imagePlat" fitHeight="724.0" fitWidth="724.0" layoutX="172.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
-      <VBox layoutX="1034.0" layoutY="139.0" prefHeight="522.0" prefWidth="761.0">
+      <VBox layoutX="1034.0" layoutY="139.0" prefHeight="380.0" prefWidth="761.0">
          <children>
-            <Text fx:id="afficheNom" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom produit" wrappingWidth="498.44140625">
+            <Text fx:id="afficheNom" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom produit" wrappingWidth="870.44140625">
                <font>
                   <Font name="Bauhaus 93" size="80.0" />
                </font>
             </Text>
-            <Text fx:id="afficheDesc" layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" wrappingWidth="498.44140625">
+            <Text fx:id="afficheDesc" layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" wrappingWidth="866.44140625">
                <font>
                   <Font size="47.0" />
                </font>
@@ -28,7 +30,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Text>
-            <Text fx:id="affichePrix" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00€" wrappingWidth="694.13671875">
+            <Text fx:id="affichePrix" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00€" wrappingWidth="304.13671875">
                <font>
                   <Font name="Calibri" size="70.0" />
                </font>
@@ -38,6 +40,37 @@
             </Text>
          </children>
       </VBox>
+      <fx:define>
+         <ToggleGroup fx:id="proteinGroup" />
+      </fx:define>
+      <HBox fx:id="proteinBox" layoutX="1022.0" layoutY="591.0" prefHeight="87.0" prefWidth="856.0">
+         <children>
+
+            <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Boeuf">
+               <font>
+                  <Font size="27.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="proteinGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rbPoulet" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rbCrevette" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Crevette" toggleGroup="$proteinGroup">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rbTofu" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Tofu" toggleGroup="$proteinGroup">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </HBox>
       <Text fx:id="quantityText" layoutX="1023.0" layoutY="758.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité : 0" textAlignment="CENTER" wrappingWidth="756.13671875">
          <font>
             <Font name="Calibri Italic" size="40.0" />
@@ -53,7 +86,7 @@
                   <Insets right="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="ajoutPanier" mnemonicParsing="false" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 20; -fx-background-color: #DDAD52;" text="Ajouter au panier" onAction="#addToCart">
+            <Button fx:id="ajoutPanier" mnemonicParsing="false" onAction="#addToCart" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 20; -fx-background-color: #DDAD52;" text="Ajouter au panier">
                <font>
                   <Font size="45.0" />
                </font>
