@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1002.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.panierF">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.panierF">
    <children>
       <Pane layoutX="332.0" prefHeight="1120.0" prefWidth="1595.0" style="-fx-background-color: #F3E8D2;">
          <children>
@@ -19,21 +19,21 @@
                   <Image url="@images/fond_beige.png" />
                </image>
             </ImageView>
-            <Label fx:id="price" layoutX="-38.0" layoutY="839.0" prefHeight="61.0" prefWidth="360.0" text="Prix : 0,00 €">
+            <Label fx:id="price" layoutX="-26.0" layoutY="968.0" prefHeight="83.0" prefWidth="438.0" text="Total : 0,00 €">
                <font>
-                  <Font size="58.0" />
+                  <Font name="Bauhaus 93" size="58.0" />
+               </font>
+            </Label>
+            <Label layoutX="493.0" layoutY="19.0" prefHeight="119.0" prefWidth="444.0" text="Votre Panier">
+               <font>
+                  <Font name="Bauhaus 93" size="75.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Label layoutX="801.0" layoutY="-6.0" prefHeight="115.0" prefWidth="338.0" text="Votre Panier">
+      <Button layoutX="1495.0" layoutY="827.0" mnemonicParsing="false" onAction="#goConfirmation" prefHeight="92.0" prefWidth="333.0" style="-fx-background-color: pink; -fx-background-radius: 50;" text="Confirmer">
          <font>
-            <Font size="61.0" />
-         </font>
-      </Label>
-      <Button layoutX="1495.0" layoutY="827.0" mnemonicParsing="false" onAction="#goConfirmation" prefHeight="92.0" prefWidth="333.0" text="Confirmer">
-         <font>
-            <Font size="28.0" />
+            <Font size="40.0" />
          </font>
       </Button>
       <Button fx:id="retourEcranMenu" layoutX="72.0" layoutY="32.0" mnemonicParsing="false" onAction="#goMain" prefHeight="56.0" prefWidth="96.0" style="-fx-background-radius: 50;">
@@ -45,7 +45,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <ScrollPane layoutX="118.0" layoutY="153.0" prefHeight="651.0" prefWidth="668.0" style="-fx-background-color: #d7d4d4;">
+      <ScrollPane layoutX="118.0" layoutY="153.0" prefHeight="765.0" prefWidth="748.0" style="-fx-background-color: #d7d4d4;">
          <content>
             <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
          </content>
