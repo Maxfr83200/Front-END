@@ -1,6 +1,7 @@
 package com;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -18,6 +19,9 @@ public class accueilF {
 
     @FXML
     private Label instructionLabel;
+
+    @FXML
+    private TextField codeAdmin;
 
     private Boolean isFrench = true;
 
@@ -56,20 +60,31 @@ public class accueilF {
 
     @FXML
     public void goAdmin(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/admin.fxml"));
-        try {
-            Parent root = loader.load();
-            adminF mainCtrl = loader.getController();
-            mainCtrl.setLanguage(isFrench);
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        String code = codeAdmin.getText();
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        if ("1012".equals(code)) {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/admin.fxml"));
+            try {
+                Parent root = loader.load();
+                adminF mainCtrl = loader.getController();
+                mainCtrl.setLanguage(isFrench);
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // --- CODE FAUX ---
+            System.out.println("Code faux ! Tentative avec : " + code);
+
+            codeAdmin.setText("");
         }
     }
 
