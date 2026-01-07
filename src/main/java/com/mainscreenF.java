@@ -77,46 +77,44 @@ public class mainscreenF {
     @FXML
     private Label price;
 
-    private double cartTotal = 0.0;
-
 
     private void updateTotalprice() {
-        price.setText("Total : " + cartTotal + "0 \u20AC");
+        price.setText(String.format("Total : %.2f \u20AC", cart.getTotal()));
     }
+
+    private void refreshCartUI() {
+        cartContainer.getChildren().clear();
+
+        cart.getItems().forEach((item, qty) -> {
+            cartContainer.getChildren().add(createCardtoCart(item, qty));
+        });
+
+        updateTotalprice();
+    }
+
 
 
     private void addCart(MenuItem item) {
-
-        cartContainer.getChildren().add(createCardtoCart(item));
-        cartTotal += item.getPrice();
-        updateTotalprice();
-
+        cart.addItem(item, 1);
+        refreshCartUI();
     }
 
 
+    CartModel cart = CartModel.getInstance();
 
+    private HBox createCardtoCart(MenuItem item, int qty) {
 
-    private HBox createCardtoCart(MenuItem item) {
+        Label label = new Label(qty + " x " + item.getName() + "  -  " +
+                String.format("%.2f \u20AC", item.getPrice() * qty));
+        label.setStyle("-fx-font-size: 16px;");
 
-
-        VBox texts = new VBox(4);
-        Label label = new Label(
-                " - " + item.getName() + "  -  " + item.getPrice() + "0 euros"
-        );
-        label.setFont(Font.font(18));
-
-        texts.getChildren().add(label);
-
-        HBox card = new HBox(8, texts);
-
-        card.setMinHeight(20);
-        card.setPrefHeight(30);
-
+        HBox card = new HBox(label);
         card.setMaxWidth(Double.MAX_VALUE);
-
+        card.setStyle("-fx-padding: 6;");
 
         return card;
     }
+
 
 
     public void goDetail(MouseEvent event, MenuItem item) {
@@ -177,6 +175,7 @@ public class mainscreenF {
     public void initialize() {
         filterAll(null);
         updateTotalprice();
+        refreshCartUI();
     }
 
 

@@ -53,7 +53,7 @@
                   <Insets right="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="ajoutPanier" mnemonicParsing="false" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 20; -fx-background-color: #DDAD52;" text="Ajouter au panier">
+            <Button fx:id="ajoutPanier" mnemonicParsing="false" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 20; -fx-background-color: #DDAD52;" text="Ajouter au panier" onAction="#addToCart">
                <font>
                   <Font size="45.0" />
                </font>

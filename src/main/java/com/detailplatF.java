@@ -47,6 +47,14 @@ public class detailplatF {
         }
     }
 
+    CartModel cart = CartModel.getInstance();
+
+    @FXML
+    private void addToCart(ActionEvent event) {
+        cart.addItem(item, quantity);
+        goMain(event);
+    }
+
     public void goMain(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mainscreen.fxml"));
         try {

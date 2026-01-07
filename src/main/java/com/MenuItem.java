@@ -14,7 +14,17 @@ public class MenuItem {
     private boolean proteinRequired;
     private String category;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MenuItem)) return false;
+        return this.id == ((MenuItem) o).id;
+    }
 
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id);
+    }
 
     public int getId() {
         return id;
