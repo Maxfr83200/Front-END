@@ -20,14 +20,10 @@ public class accueilF {
     private Label instructionLabel;
 
     private Boolean isFrench = true;
-    
-    @FXML
-    private Button helpButton;
 
     @FXML
     public void switchToFrench(ActionEvent event) {
         instructionLabel.setText("Touche pour commencer");
-        helpButton.setText("AIDE");
         System.out.println("Langue changée en Français");
         isFrench = true;
     }
@@ -35,7 +31,6 @@ public class accueilF {
     @FXML
     public void switchToEnglish(ActionEvent event) {
         instructionLabel.setText("Touch to start");
-        helpButton.setText("HELP");
         System.out.println("Language switched to English");
         isFrench = false;
     }
@@ -54,6 +49,25 @@ public class accueilF {
             stage.show();
             
             
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void goAdmin(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/admin.fxml"));
+        try {
+            Parent root = loader.load();
+            adminF mainCtrl = loader.getController();
+            mainCtrl.setLanguage(isFrench);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
