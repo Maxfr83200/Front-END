@@ -64,6 +64,7 @@ public class mainscreenF {
             if(btnRetour != null) btnRetour.setText("Return");
         }
         if(btnDesserts != null) btnDesserts.setText("Desserts");
+        filterAll(null);
     }
 
     private static final String API_BASE = "http://localhost:8080";
@@ -182,7 +183,6 @@ public class mainscreenF {
 
     @FXML
     public void initialize() {
-        filterAll(null);
         updateTotalprice();
         refreshCartUI();
     }
@@ -191,23 +191,49 @@ public class mainscreenF {
 
 
     public void filterAll(ActionEvent e) {
-        fetchAndDisplay(API_BASE + "/menu");
+        if (Boolean.TRUE.equals(isFrench)){
+            fetchAndDisplay(API_BASE + "/fr/menu/all");
+        }
+        else{
+            fetchAndDisplay(API_BASE + "/eng/menu/all");
+        }
+
     }
 
     public void filterPlats(ActionEvent e) {
-        fetchAndDisplay(API_BASE + "/menu/plats");
+        if (Boolean.TRUE.equals(isFrench)){
+            fetchAndDisplay(API_BASE + "/fr/menu/plats");
+        }
+        else{
+            fetchAndDisplay(API_BASE + "/eng/menu/plats");
+        }
     }
 
     public void filterSnacks(ActionEvent e) {
-        fetchAndDisplay(API_BASE + "/menu/snacks");
+        if (Boolean.TRUE.equals(isFrench)){
+            fetchAndDisplay(API_BASE + "/fr/menu/snacks");
+        }
+        else{
+            fetchAndDisplay(API_BASE + "/eng/menu/snacks");
+        }
     }
 
     public void filterBoissons(ActionEvent e) {
-        fetchAndDisplay(API_BASE + "/menu/boissons");
+        if (Boolean.TRUE.equals(isFrench)){
+            fetchAndDisplay(API_BASE + "/fr/menu/boissons");
+        }
+        else{
+            fetchAndDisplay(API_BASE + "/eng/menu/boissons");
+        }
     }
 
     public void filterDesserts(ActionEvent e) {
-        fetchAndDisplay(API_BASE + "/menu/desserts");
+        if (Boolean.TRUE.equals(isFrench)){
+            fetchAndDisplay(API_BASE + "/fr/menu/desserts");
+        }
+        else{
+            fetchAndDisplay(API_BASE + "/eng/menu/desserts");
+        }
     }
 
 
