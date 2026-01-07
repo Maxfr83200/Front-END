@@ -93,22 +93,4 @@ public class confirmationF {
             e.printStackTrace();
         }
     }
-
-    public void goMain(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mainscreen.fxml"));
-        try {
-            Parent root = loader.load();
-            mainscreenF mainCtrl = loader.getController();
-            mainCtrl.setLanguage(isFrench);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

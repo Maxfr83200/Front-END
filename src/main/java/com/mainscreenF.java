@@ -41,7 +41,7 @@ public class mainscreenF {
     @FXML private Button btnBoissons;
     @FXML private Button btnDesserts;
     @FXML private Button btnPayer;
-    @FXML private Button btnAcceuil;
+    @FXML private Button btnRetour;
 
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
@@ -53,6 +53,7 @@ public class mainscreenF {
             if(btnSnacks != null) btnSnacks.setText("Snacks");
             if(btnBoissons != null) btnBoissons.setText("Boissons");
             if(btnPayer != null) btnPayer.setText("Paiement");
+            if(btnRetour != null) btnRetour.setText("Retour");
         } else {
             // Version Anglaise
             if(btnTous != null) btnTous.setText("All");
@@ -60,6 +61,7 @@ public class mainscreenF {
             if(btnSnacks != null) btnSnacks.setText("Snacks");
             if(btnBoissons != null) btnBoissons.setText("Drinks");
             if(btnPayer != null) btnPayer.setText("Payement");
+            if(btnRetour != null) btnRetour.setText("Return");
         }
         if(btnDesserts != null) btnDesserts.setText("Desserts");
     }
@@ -106,11 +108,6 @@ public class mainscreenF {
                 String.format("Total : %.2f \u20AC", cart.getTotal())
         );
     }
-
-
-
-
-
 
     CartModel cart = CartModel.getInstance();
 
