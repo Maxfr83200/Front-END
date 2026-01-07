@@ -1,6 +1,9 @@
 package com;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,10 +35,47 @@ import java.net.http.HttpResponse;
 import java.util.List;
 
 public class adminF {
+
+
+    private static final String API_BASE = "http://localhost:8080";
+    private final HttpClient http = HttpClient.newHttpClient();
+    private final Gson gson = new Gson();
     private Boolean isFrench;
+    @FXML private VBox menuContainer;
+    @FXML private TextField searchID;
+
+
+    @FXML
+    private void initialize() {
+
+        // chiffres uniquement
+        searchID.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                searchID.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
+        // recherche auto
+        searchID.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal.isEmpty()) {
+                filterAll(null);
+            } else {
+                filterID();
+            }
+        });
+    }
+
+
 
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
+
+        if (Boolean.TRUE.equals(isFrench)) {
+
+        } else {
+
+        }
+        filterAll(null);
     }
 
     public void retourAcceuil(ActionEvent event) {
@@ -54,6 +94,137 @@ public class adminF {
         }
 
 
+    }
+
+    public void filterID() {
+
+        String id = searchID.getText();
+
+        if (Boolean.TRUE.equals(isFrench)){
+            fetchAndDisplay(API_BASE + "/fr/menu/" + id);
+        }
+        else{
+            fetchAndDisplay(API_BASE + "/eng/menu/" + id);
+        }
+
+    }
+
+
+    public void filterAll(ActionEvent e) {
+        if (Boolean.TRUE.equals(isFrench)){
+            fetchAndDisplay(API_BASE + "/fr/menu/all");
+        }
+        else{
+            fetchAndDisplay(API_BASE + "/eng/menu/all");
+        }
+
+    }
+
+
+    private void fetchAndDisplay(String url) {
+        Task<List<MenuItem>> task = new Task<>() {
+            @Override
+            protected List<MenuItem> call() throws Exception {
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create(url))
+                        .GET()
+                        .build();
+
+                HttpResponse<String> response =
+                        http.send(request, HttpResponse.BodyHandlers.ofString());
+
+                if (response.statusCode() == 404) {
+                    // ID inexistant → liste vide
+                    return List.of();
+                }
+
+                if (response.statusCode() != 200) {
+                    throw new RuntimeException("API error " + response.statusCode() + " : " + response.body());
+                }
+
+                String json = response.body();
+
+                JsonElement root = JsonParser.parseString(json);
+
+                if (root.isJsonArray()) {
+                    Type listType = new TypeToken<List<MenuItem>>() {}.getType();
+                    return gson.fromJson(root, listType);
+                } else {
+                    MenuItem one = gson.fromJson(root, MenuItem.class);
+                    return List.of(one);
+                }
+            }
+        };
+
+        task.setOnSucceeded(ev ->
+                Platform.runLater(() -> refreshUI(task.getValue()))
+        );
+
+        task.setOnFailed(ev -> {
+            Throwable ex = task.getException();
+            ex.printStackTrace();
+        });
+
+        new Thread(task, "api-fetch").start();
+    }
+
+
+
+    private void refreshUI(List<MenuItem> items) {
+        System.out.println("Nombre d'articles reçus de l'API : " + items.size()); // DEBUG
+        menuContainer.getChildren().clear();
+
+
+        menuContainer.setPrefHeight(VBox.USE_COMPUTED_SIZE);
+        menuContainer.setMinHeight(VBox.USE_COMPUTED_SIZE);
+
+        for (MenuItem item : items) {
+            menuContainer.getChildren().add(createCard(item));
+        }
+
+
+        System.out.println("Hauteur finale du conteneur : " + menuContainer.getBoundsInParent().getHeight());
+    }
+
+
+    private HBox createCard(MenuItem item) {
+        ImageView img = new ImageView();
+        img.setFitWidth(120);
+        img.setFitHeight(120);
+        img.setPreserveRatio(true);
+
+        String imagePath = item.getImageUrl();
+
+        if (imagePath != null && !imagePath.isBlank()) {
+
+            var inputStream = getClass().getResourceAsStream("/" + imagePath);
+            if (inputStream != null) {
+                Image image = new Image(inputStream);
+                img.setImage(image);
+            } else {
+                System.err.println("Image introuvable : " + imagePath);
+            }
+        }
+
+        VBox texts = new VBox(4);
+        texts.getChildren().addAll(
+                new Label("ID: "+item.getId() +" - "+item.getName() + " - " + item.getPrice() + "0\u20AC"),
+                new Label(item.getDescription()),
+                new Label(item.getCalories() + " kcal")
+        );
+
+        HBox card = new HBox(12, img, texts);
+
+        card.setMinHeight(150);
+        card.setPrefHeight(150);
+
+        card.setMaxWidth(Double.MAX_VALUE);
+        card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
+        //card.setOnMouseClicked(e -> goDetail(e, item));
+
+
+
+        return card;
     }
 
 }
