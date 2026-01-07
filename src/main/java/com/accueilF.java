@@ -64,7 +64,7 @@ public class accueilF {
         String code = codeAdmin.getText();
 
 
-        if ("1012".equals(code)) {
+        if ("0000".equals(code)) {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/admin.fxml"));
             try {
