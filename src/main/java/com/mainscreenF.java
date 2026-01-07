@@ -41,6 +41,7 @@ public class mainscreenF {
     @FXML private Button btnBoissons;
     @FXML private Button btnDesserts;
     @FXML private Button btnPayer;
+    @FXML private Button btnAcceuil;
 
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;

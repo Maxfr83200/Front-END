@@ -80,6 +80,11 @@
                </opaqueInsets>
       
                   </VBox>
+            <Button fx:id="btnAcceuil" layoutX="48.0" layoutY="857.0" mnemonicParsing="false" onAction="#retourAccueil" prefHeight="72.0" prefWidth="211.0" style="-fx-background-color: #8ad04c; -fx-border-color: black;" text="Accueil" textFill="WHITE">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane layoutX="1465.0" layoutY="49.0" prefHeight="906.0" prefWidth="422.0">

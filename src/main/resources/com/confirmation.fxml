@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1002.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.panierF">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1002.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.confirmationF">
    <children>
       <Pane layoutX="332.0" prefHeight="1120.0" prefWidth="1595.0" style="-fx-background-color: #F3E8D2;">
          <children>
@@ -26,12 +26,12 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="801.0" layoutY="-6.0" prefHeight="115.0" prefWidth="338.0" text="Votre Panier">
+      <Label layoutX="735.0" layoutY="-6.0" prefHeight="115.0" prefWidth="451.0" text="CONFIRMATION">
          <font>
             <Font size="61.0" />
          </font>
       </Label>
-      <Button layoutX="1495.0" layoutY="827.0" mnemonicParsing="false" onAction="#goConfirmation" prefHeight="92.0" prefWidth="333.0" text="Confirmer">
+      <Button layoutX="1495.0" layoutY="827.0" mnemonicParsing="false" onAction="#retourAcceuil" prefHeight="92.0" prefWidth="333.0" text="Retour à l'accueil">
          <font>
             <Font size="28.0" />
          </font>

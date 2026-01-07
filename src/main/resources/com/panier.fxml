@@ -31,7 +31,7 @@
             <Font size="61.0" />
          </font>
       </Label>
-      <Button layoutX="1495.0" layoutY="827.0" mnemonicParsing="false" onAction="#retourAccueil" prefHeight="92.0" prefWidth="333.0" text="Confirmer">
+      <Button layoutX="1495.0" layoutY="827.0" mnemonicParsing="false" onAction="#goConfirmation" prefHeight="92.0" prefWidth="333.0" text="Confirmer">
          <font>
             <Font size="28.0" />
          </font>
