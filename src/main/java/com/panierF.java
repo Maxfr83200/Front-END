@@ -63,7 +63,7 @@ public class panierF {
 
         CartModel cart = CartModel.getInstance();
 
-        // Afficher un message si vide
+
         if (cart.getQuantities().isEmpty()) {
             Label empty = new Label("Votre panier est vide");
             empty.setStyle("-fx-font-size: 18px; -fx-text-fill: grey;");
@@ -77,7 +77,7 @@ public class panierF {
             int qty = cart.getQuantities().get(key);
             String protein = cart.getProteinFromKey(key);
 
-            // --- 1. Préparation du Texte ---
+
             String nomPlat = item.getName();
             if (protein != null) nomPlat += " (" + protein + ")";
 
@@ -88,24 +88,21 @@ public class panierF {
             priceLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #555;");
 
             VBox infoBox = new VBox(nameLabel, priceLabel);
-            infoBox.setPrefWidth(200); // Donne de la place au texte pour ne pas coller les boutons
+            infoBox.setPrefWidth(200);
 
-            // --- 2. Création des Boutons ---
             Button btnMinus = new Button("-");
             Button btnPlus = new Button("+");
-            Button btnDelete = new Button("X"); // Ou "Suppr"
+            Button btnDelete = new Button("X");
             Label qtyLabel = new Label(String.valueOf(qty));
 
-            // Style rapide (tu peux changer les couleurs)
             btnMinus.setStyle("-fx-min-width: 30px; -fx-background-color: #f0f0f0;");
             btnPlus.setStyle("-fx-min-width: 30px; -fx-background-color: #f0f0f0;");
             btnDelete.setStyle("-fx-background-color: #ff4444; -fx-text-fill: white; -fx-font-weight: bold;");
             qtyLabel.setStyle("-fx-font-size: 16px; -fx-padding: 0 10 0 10;");
 
-            // --- 3. Actions des Boutons ---
             btnMinus.setOnAction(e -> {
                 cart.decreaseQuantity(key);
-                refreshCartUI();    // On redessine tout de suite !
+                refreshCartUI();
                 updateTotalprice();
             });
 

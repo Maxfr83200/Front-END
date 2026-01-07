@@ -56,7 +56,10 @@ public class CartModel {
 
     public void increaseQuantity(String key) {
         if (quantities.containsKey(key)) {
-            quantities.put(key, quantities.get(key) + 1);
+            int current = quantities.get(key);
+            if (current < 9) {
+                quantities.put(key, current + 1);
+            }
         }
     }
 
@@ -66,7 +69,7 @@ public class CartModel {
             if (currentQty > 1) {
                 quantities.put(key, currentQty - 1);
             } else {
-                // Si on arrive à 0, on supprime l'article
+
                 removeItem(key);
             }
         }
