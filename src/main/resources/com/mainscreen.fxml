@@ -68,21 +68,34 @@
                   </VBox>
          </children>
       </Pane>
-      <Pane layoutX="323.0" layoutY="1.0" prefHeight="1110.0" prefWidth="1594.0" style="-fx-background-color: #F3E8D2;" />
+      <Pane layoutX="322.0" prefHeight="1110.0" prefWidth="1595.0" style="-fx-background-color: #F3E8D2;">
+         <children>
+            <ImageView fitHeight="1121.0" fitWidth="1703.0" layoutX="5.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/fond_beige.png" />
+               </image>
+            </ImageView>
+            <ScrollPane fitToWidth="true" layoutX="175.0" layoutY="100.0" prefHeight="901.0" prefWidth="634.0">
+               <content>
+                  <VBox fx:id="menuContainer" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
       <Line endX="-107.0" endY="838.0" layoutX="427.0" layoutY="270.0" startX="-107.0" startY="-274.0" strokeWidth="3.0" />
       <Pane layoutX="1465.0" layoutY="73.0" prefHeight="980.0" prefWidth="422.0">
          <children>
-            <Pane layoutX="17.0" layoutY="18.0" prefHeight="736.0" prefWidth="385.0" style="-fx-background-color: #d7d4d4; -fx-padding: 50;">
+            <Pane layoutX="17.0" layoutY="300.0" prefHeight="454.0" prefWidth="385.0" style="-fx-background-color: #d7d4d4; -fx-padding: 50;">
                <children>
-                  <Line endX="162.0" layoutX="188.0" layoutY="648.0" startX="-156.0" strokeWidth="2.0" />
-                  <Label fx:id="price" layoutX="93.0" layoutY="660.0" prefHeight="58.0" prefWidth="278.0" text="Prix : 0,00 €">
+                  <Line endX="162.0" layoutX="182.0" layoutY="372.0" startX="-140.5" strokeWidth="2.0" />
+                  <Label fx:id="price" layoutX="90.0" layoutY="386.0" prefHeight="58.0" prefWidth="278.0" text="Prix : 0,00 €">
                      <font>
                         <Font size="37.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="584.0" prefWidth="354.0" style="-fx-background-color: #d7d4d4;">
+                  <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="319.0" prefWidth="354.0" style="-fx-background-color: #d7d4d4;">
                     <content>
-                       <VBox fx:id="cartContainer" spacing="1" />
+                       <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
                     </content>
                   </ScrollPane>
                </children>
@@ -94,10 +107,5 @@
             </Button>
          </children>
       </Pane>
-      <ScrollPane fitToWidth="true" layoutX="354.0" layoutY="42.0" prefHeight="1026.0" prefWidth="1080.0" AnchorPane.bottomAnchor="42.0" AnchorPane.topAnchor="42.0">
-         <content>
-            <VBox fx:id="menuContainer" />
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>
