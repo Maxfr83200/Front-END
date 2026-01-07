@@ -14,9 +14,23 @@
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mainscreenF">
    <children>
+      <Pane layoutX="322.0" layoutY="-10.0" prefHeight="1120.0" prefWidth="1595.0" style="-fx-background-color: #F3E8D2;">
+         <children>
+            <ImageView fitHeight="1319.0" fitWidth="1980.0" layoutX="-341.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/fond_beige.png" />
+               </image>
+            </ImageView>
+            <ScrollPane fitToWidth="true" layoutX="175.0" layoutY="92.0" prefHeight="885.0" prefWidth="634.0">
+               <content>
+                  <VBox fx:id="menuContainer" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
       <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1115.0" prefWidth="323.0">
          <children>
-            <ImageView fitHeight="1412.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="1116.0" fitWidth="1166.0" layoutX="-422.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/fond_rouge.png" />
                </image>
@@ -68,21 +82,6 @@
                   </VBox>
          </children>
       </Pane>
-      <Pane layoutX="322.0" prefHeight="1110.0" prefWidth="1595.0" style="-fx-background-color: #F3E8D2;">
-         <children>
-            <ImageView fitHeight="1121.0" fitWidth="1703.0" layoutX="5.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/fond_beige.png" />
-               </image>
-            </ImageView>
-            <ScrollPane fitToWidth="true" layoutX="175.0" layoutY="92.0" prefHeight="885.0" prefWidth="634.0">
-               <content>
-                  <VBox fx:id="menuContainer" />
-               </content>
-            </ScrollPane>
-         </children>
-      </Pane>
-      <Line endX="-107.0" endY="838.0" layoutX="427.0" layoutY="270.0" startX="-107.0" startY="-274.0" strokeWidth="3.0" />
       <Pane layoutX="1465.0" layoutY="49.0" prefHeight="906.0" prefWidth="422.0">
          <children>
             <Pane layoutX="17.0" layoutY="300.0" prefHeight="454.0" prefWidth="385.0" style="-fx-background-color: #d7d4d4; -fx-padding: 50;">
@@ -107,5 +106,6 @@
             </Button>
          </children>
       </Pane>
+      <Line endX="-107.0" endY="840.0" layoutX="427.0" layoutY="270.0" startX="-107.0" startY="-274.0" strokeWidth="4.0" />
    </children>
 </AnchorPane>

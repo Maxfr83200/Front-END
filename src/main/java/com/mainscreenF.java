@@ -250,7 +250,7 @@ public class mainscreenF {
         System.out.println("Nombre d'articles reçus de l'API : " + items.size()); // DEBUG
         menuContainer.getChildren().clear();
 
-        // On s'assure que le VBox n'est pas bridé en hauteur avant d'ajouter les items
+
         menuContainer.setPrefHeight(VBox.USE_COMPUTED_SIZE);
         menuContainer.setMinHeight(VBox.USE_COMPUTED_SIZE);
 
@@ -258,7 +258,7 @@ public class mainscreenF {
             menuContainer.getChildren().add(createCard(item));
         }
 
-        // Debug : affichez la taille finale calculée après l'ajout
+
         System.out.println("Hauteur finale du conteneur : " + menuContainer.getBoundsInParent().getHeight());
     }
 
