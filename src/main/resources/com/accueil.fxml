@@ -11,18 +11,18 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#startCommand" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.accueilF">
    <children>
 
-      <Label fx:id="instructionLabel" layoutX="391.0" layoutY="602.0" prefHeight="254.0" prefWidth="1140.0" text="Touchez pour commander">
+      <Label fx:id="instructionLabel" layoutX="387.0" layoutY="632.0" prefHeight="254.0" prefWidth="1140.0" text="Touchez pour commander" textFill="#513b3b">
          <font>
             <Font name="Bauhaus 93" size="96.0" />
          </font>
       </Label>
 
-      <Button layoutX="595.0" layoutY="858.0" mnemonicParsing="false" onAction="#switchToFrench" prefHeight="166.0" prefWidth="206.0" style="-fx-background-radius: 30; -fx-background-color: transparent;">
+      <Button layoutX="694.0" layoutY="840.0" mnemonicParsing="false" onAction="#switchToFrench" prefHeight="116.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: transparent;">
          <font>
             <Font size="52.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="124.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="184.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/france.png" />
                </image>
@@ -30,7 +30,7 @@
          </graphic>
       </Button>
 
-      <Button layoutX="890.0" layoutY="898.0" mnemonicParsing="false" onAction="#switchToEnglish" prefHeight="113.0" prefWidth="192.0">
+      <Button layoutX="957.0" layoutY="864.0" mnemonicParsing="false" onAction="#switchToEnglish" prefHeight="113.0" prefWidth="192.0" style="-fx-background-radius: 30; -fx-background-color: transparent;">
          <font>
             <Font size="53.0" />
          </font>
@@ -43,16 +43,16 @@
          </graphic>
       </Button>
 
-      <Button layoutX="37.0" layoutY="44.0" mnemonicParsing="false" onAction="#goAdmin" prefHeight="38.0" prefWidth="79.0" text="Admin">
+      <Button layoutX="150.0" layoutY="22.0" mnemonicParsing="false" onAction="#goAdmin" prefHeight="43.0" prefWidth="108.0" style="-fx-background-radius: 30; -fx-background-color: #DCB5B5;" text="Accès admin">
          <font>
-            <Font size="17.0" />
+            <Font size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="516.0" fitWidth="508.0" layoutX="771.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="516.0" fitWidth="508.0" layoutX="703.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Cacayalogo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="codeAdmin" layoutX="164.0" layoutY="53.0" prefHeight="25.0" prefWidth="97.0" />
+      <TextField fx:id="codeAdmin" layoutX="25.0" layoutY="21.0" prefHeight="47.0" prefWidth="119.0" style="-fx-background-color: #E9E5E5; -fx-border-color: #CECECE;" />
    </children>
 </AnchorPane>
