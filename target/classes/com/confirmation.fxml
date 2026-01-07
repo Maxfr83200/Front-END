@@ -36,15 +36,6 @@
             <Font size="28.0" />
          </font>
       </Button>
-      <Button fx:id="retourEcranMenu" layoutX="72.0" layoutY="32.0" mnemonicParsing="false" onAction="#goMain" prefHeight="56.0" prefWidth="96.0" style="-fx-background-radius: 50;">
-         <graphic>
-            <ImageView fitHeight="48.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/retour.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <ScrollPane layoutX="118.0" layoutY="153.0" prefHeight="651.0" prefWidth="668.0" style="-fx-background-color: #d7d4d4;">
          <content>
             <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />

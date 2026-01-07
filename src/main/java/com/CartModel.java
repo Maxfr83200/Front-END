@@ -53,6 +53,34 @@ public class CartModel {
         }
         return total;
     }
+
+    public void increaseQuantity(String key) {
+        if (quantities.containsKey(key)) {
+            quantities.put(key, quantities.get(key) + 1);
+        }
+    }
+
+    public void decreaseQuantity(String key) {
+        if (quantities.containsKey(key)) {
+            int currentQty = quantities.get(key);
+            if (currentQty > 1) {
+                quantities.put(key, currentQty - 1);
+            } else {
+                // Si on arrive à 0, on supprime l'article
+                removeItem(key);
+            }
+        }
+    }
+
+    public void removeItem(String key) {
+        quantities.remove(key);
+        items.remove(key);
+    }
+
+    public void clear() {
+        quantities.clear();
+        items.clear();
+    }
 }
 
 

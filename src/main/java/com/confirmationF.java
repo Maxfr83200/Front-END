@@ -80,6 +80,8 @@ public class confirmationF {
 
 
     public void retourAcceuil(ActionEvent event) {
+        CartModel.getInstance().clear();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/accueil.fxml"));
         try {
             Parent root = loader.load();
