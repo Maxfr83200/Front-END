@@ -47,7 +47,7 @@
                   <Font size="20.0" />
                </font>
             </TextArea>
-            <Label layoutX="10.0" layoutY="639.0" prefHeight="123.0" prefWidth="624.0" text="Prix" textFill="#5b4949">
+            <Label  fx:id="textPrix" layoutX="10.0" layoutY="639.0" prefHeight="123.0" prefWidth="624.0" text="Prix" textFill="#5b4949">
 
                <font>
                   <Font name="Berlin Sans FB" size="45.0" />
