@@ -1,9 +1,11 @@
 package com;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
 import javafx.scene.input.MouseEvent;
 
 import javafx.event.ActionEvent;
@@ -22,8 +24,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
 import java.util.ArrayList;
+
 import javafx.scene.text.Font;
+
 import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -35,35 +40,42 @@ public class mainscreenF {
 
     private Boolean isFrench;
 
-    @FXML private Button btnTous;
-    @FXML private Button btnPlats;
-    @FXML private Button btnSnacks;
-    @FXML private Button btnBoissons;
-    @FXML private Button btnDesserts;
-    @FXML private Button btnPayer;
-    @FXML private Button btnRetour;
+    @FXML
+    private Button btnTous;
+    @FXML
+    private Button btnPlats;
+    @FXML
+    private Button btnSnacks;
+    @FXML
+    private Button btnBoissons;
+    @FXML
+    private Button btnDesserts;
+    @FXML
+    private Button btnPayer;
+    @FXML
+    private Button btnRetour;
 
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
 
         if (Boolean.TRUE.equals(isFrench)) {
             // Version Française
-            if(btnTous != null) btnTous.setText("Tous");
-            if(btnPlats != null) btnPlats.setText("Plats");
-            if(btnSnacks != null) btnSnacks.setText("Snacks");
-            if(btnBoissons != null) btnBoissons.setText("Boissons");
-            if(btnPayer != null) btnPayer.setText("Paiement");
-            if(btnRetour != null) btnRetour.setText("Retour");
+            if (btnTous != null) btnTous.setText("Tous");
+            if (btnPlats != null) btnPlats.setText("Plats");
+            if (btnSnacks != null) btnSnacks.setText("Snacks");
+            if (btnBoissons != null) btnBoissons.setText("Boissons");
+            if (btnPayer != null) btnPayer.setText("Paiement");
+            if (btnRetour != null) btnRetour.setText("Retour");
         } else {
             // Version Anglaise
-            if(btnTous != null) btnTous.setText("All");
-            if(btnPlats != null) btnPlats.setText("Dishes");
-            if(btnSnacks != null) btnSnacks.setText("Snacks");
-            if(btnBoissons != null) btnBoissons.setText("Drinks");
-            if(btnPayer != null) btnPayer.setText("Payement");
-            if(btnRetour != null) btnRetour.setText("Return");
+            if (btnTous != null) btnTous.setText("All");
+            if (btnPlats != null) btnPlats.setText("Dishes");
+            if (btnSnacks != null) btnSnacks.setText("Snacks");
+            if (btnBoissons != null) btnBoissons.setText("Drinks");
+            if (btnPayer != null) btnPayer.setText("Payement");
+            if (btnRetour != null) btnRetour.setText("Return");
         }
-        if(btnDesserts != null) btnDesserts.setText("Desserts");
+        if (btnDesserts != null) btnDesserts.setText("Desserts");
         filterAll(null);
     }
 
@@ -80,6 +92,9 @@ public class mainscreenF {
 
     @FXML
     private Label price;
+
+    @FXML
+    private ScrollPane menuScroll;
 
 
     private void updateTotalprice() {
@@ -126,7 +141,6 @@ public class mainscreenF {
     }
 
 
-
     public void goDetail(MouseEvent event, MenuItem item) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/detailplat.fxml"));
         try {
@@ -144,10 +158,6 @@ public class mainscreenF {
     }
 
 
-
-
-
-
     public void goPanier(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/panier.fxml"));
         try {
@@ -159,8 +169,8 @@ public class mainscreenF {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -176,8 +186,8 @@ public class mainscreenF {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            
-            
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -185,55 +195,63 @@ public class mainscreenF {
 
     @FXML
     public void initialize() {
+
+
         updateTotalprice();
         refreshCartUI();
+
+
+        Platform.runLater(() -> {
+            if (menuScroll != null) {
+                menuScroll.setStyle("-fx-background-color: transparent; -fx-background: transparent;");
+
+                var viewport = menuScroll.lookup(".viewport");
+                if (viewport != null) viewport.setStyle("-fx-background-color: transparent;");
+
+                var corner = menuScroll.lookup(".corner");
+                if (corner != null) corner.setStyle("-fx-background-color: transparent;");
+            }
+        });
     }
 
 
-
-
     public void filterAll(ActionEvent e) {
-        if (Boolean.TRUE.equals(isFrench)){
+        if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/all");
-        }
-        else{
+        } else {
             fetchAndDisplay(API_BASE + "/eng/menu/all");
         }
 
     }
 
     public void filterPlats(ActionEvent e) {
-        if (Boolean.TRUE.equals(isFrench)){
+        if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/plats");
-        }
-        else{
+        } else {
             fetchAndDisplay(API_BASE + "/eng/menu/plats");
         }
     }
 
     public void filterSnacks(ActionEvent e) {
-        if (Boolean.TRUE.equals(isFrench)){
+        if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/snacks");
-        }
-        else{
+        } else {
             fetchAndDisplay(API_BASE + "/eng/menu/snacks");
         }
     }
 
     public void filterBoissons(ActionEvent e) {
-        if (Boolean.TRUE.equals(isFrench)){
+        if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/boissons");
-        }
-        else{
+        } else {
             fetchAndDisplay(API_BASE + "/eng/menu/boissons");
         }
     }
 
     public void filterDesserts(ActionEvent e) {
-        if (Boolean.TRUE.equals(isFrench)){
+        if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/desserts");
-        }
-        else{
+        } else {
             fetchAndDisplay(API_BASE + "/eng/menu/desserts");
         }
     }
@@ -255,7 +273,8 @@ public class mainscreenF {
                     throw new RuntimeException("API error " + response.statusCode() + " : " + response.body());
                 }
 
-                Type listType = new TypeToken<List<MenuItem>>() {}.getType();
+                Type listType = new TypeToken<List<MenuItem>>() {
+                }.getType();
                 return gson.fromJson(response.body(), listType);
             }
         };
@@ -289,9 +308,6 @@ public class mainscreenF {
     }
 
 
-
-
-
     private HBox createCard(MenuItem item) {
         ImageView img = new ImageView();
         img.setFitWidth(120);
@@ -311,19 +327,20 @@ public class mainscreenF {
         VBox texts = new VBox(4);
 
         Label namePrice = new Label(item.getName() + " - " + item.getPrice() + "0\u20AC");
+        namePrice.setStyle("-fx-text-fill: black; ");
         Label desc = new Label(item.getDescription());
+        desc.setStyle("-fx-text-fill: black; ");
         Label calories = new Label(item.getCalories() + " kcal");
+        calories.setStyle("-fx-text-fill: black; ");
 
         texts.getChildren().addAll(namePrice, desc, calories);
 
 
         if (!item.isAvailable()) {
             Label unavailable;
-            if(Boolean.TRUE.equals(isFrench))
-            {
+            if (Boolean.TRUE.equals(isFrench)) {
                 unavailable = new Label("Victime de son succ\u00E8s");
-            }
-            else{
+            } else {
                 unavailable = new Label("Victim of its success");
             }
             unavailable.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
@@ -337,11 +354,11 @@ public class mainscreenF {
 
 
         card.setStyle("""
-        -fx-padding: 10;
-        -fx-border-color: #ddd;
-        -fx-border-radius: 8;
-        -fx-background-radius: 8;
-    """);
+                    -fx-background-color: white;
+                    -fx-background-radius: 15;
+                    -fx-padding: 15;
+                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 4);
+                """);
 
 
         if (!item.isAvailable()) {

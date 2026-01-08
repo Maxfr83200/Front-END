@@ -12,105 +12,131 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mainscreenF">
-   <children>
-      <Pane layoutX="322.0" layoutY="-10.0" prefHeight="1120.0" prefWidth="1595.0" style="-fx-background-color: #F3E8D2;">
-         <children>
-            <ImageView fitHeight="1319.0" fitWidth="1980.0" layoutX="-341.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/fond_beige.png" />
-               </image>
-            </ImageView>
-            <ScrollPane fitToWidth="true" layoutX="175.0" layoutY="92.0" prefHeight="885.0" prefWidth="634.0">
-               <content>
-                  <VBox fx:id="menuContainer" />
-               </content>
-            </ScrollPane>
-         </children>
-      </Pane>
-      <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1115.0" prefWidth="323.0">
-         <children>
-            <ImageView fitHeight="1116.0" fitWidth="1166.0" layoutX="-422.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/fond_rouge.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="294.0" fitWidth="304.0" layoutX="12.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/Cacayalogo.png" />
-               </image>
-            </ImageView>
-      
-                  <VBox fx:id="leftMenu" layoutX="40.0" layoutY="437.0" prefHeight="298.0" prefWidth="236.0" spacing="18.0" style="-fx-padding: -5;">
-      
-                     <Button fx:id="btnTous" onAction="#filterAll" prefHeight="82.0" prefWidth="289.0" style="-fx-background-color: transparent;" text="Tout" textAlignment="CENTER" textFill="#f3e8d2">
-                  <font>
-                     <Font name="Broadway" size="33.0" />
-                  </font>
-                  <VBox.margin>
-                     <Insets />
-                  </VBox.margin>
-               </Button>
-      
-                     <Button fx:id="btnPlats" onAction="#filterPlats" prefHeight="76.0" prefWidth="325.0" style="-fx-background-color: transparent;" text="Plats" textAlignment="CENTER" textFill="#f3e8d2">
-                  <font>
-                     <Font size="33.0" />
-                  </font>
-               </Button>
-      
-                     <Button fx:id="btnSnacks" onAction="#filterSnacks" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Snacks" textAlignment="CENTER" textFill="#f3e8d2">
-                  <font>
-                     <Font size="33.0" />
-                  </font>
-               </Button>
-      
-                     <Button fx:id="btnBoissons" onAction="#filterBoissons" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Boissons" textAlignment="CENTER" textFill="#f3e8d2">
-                  <font>
-                     <Font size="30.0" />
-                  </font>
-               </Button>
-      
-                     <Button fx:id="btnDesserts" onAction="#filterDesserts" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Desserts" textAlignment="CENTER" textFill="#f3e8d2">
-                  <font>
-                     <Font size="30.0" />
-                  </font>
-               </Button>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-      
-                  </VBox>
-            <Button fx:id="btnRetour" layoutX="25.0" layoutY="938.0" onAction="#retourAccueil" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Retour" textAlignment="CENTER" textFill="#f3e8d2">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane layoutX="1465.0" layoutY="49.0" prefHeight="906.0" prefWidth="422.0">
-         <children>
-            <Pane layoutX="17.0" layoutY="300.0" prefHeight="454.0" prefWidth="385.0" style="-fx-background-color: #d7d4d4; -fx-padding: 50;">
-               <children>
-                  <Line endX="162.0" layoutX="182.0" layoutY="372.0" startX="-140.5" strokeWidth="2.0" />
-                  <Label fx:id="price" layoutX="90.0" layoutY="386.0" prefHeight="58.0" prefWidth="278.0" text="Prix : 0,00 €">
-                     <font>
-                        <Font size="37.0" />
-                     </font>
-                  </Label>
-                  <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="319.0" prefWidth="354.0" style="-fx-background-color: #d7d4d4;">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mainscreenF">
+    <children>
+        <Pane layoutX="322.0" layoutY="-10.0" prefHeight="1120.0" prefWidth="1595.0"
+              style="-fx-background-color: #F3E8D2;">
+            <children>
+                <ImageView fitHeight="1319.0" fitWidth="1980.0" layoutX="-341.0" layoutY="-6.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@images/fond_beige.png"/>
+                    </image>
+                </ImageView>
+                <ScrollPane fx:id="menuScroll" fitToWidth="true" layoutX="175.0" layoutY="92.0" prefHeight="885.0"
+                            prefWidth="634.0"
+                            style="-fx-background-color: transparent; -fx-background: transparent;">
                     <content>
-                       <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
+                        <VBox fx:id="menuContainer" spacing="10" />
                     </content>
-                  </ScrollPane>
-               </children>
-            </Pane>
-            <Button fx:id="btnPayer" layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goPanier" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: #8ad04c; -fx-border-color: black;" text="Panier" textFill="WHITE">
-               <font>
-                  <Font size="45.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Line endX="-107.0" endY="840.0" layoutX="427.0" layoutY="270.0" startX="-107.0" startY="-274.0" strokeWidth="4.0" />
-   </children>
+                </ScrollPane>
+            </children>
+        </Pane>
+        <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1115.0" prefWidth="323.0">
+            <children>
+                <ImageView fitHeight="1116.0" fitWidth="1166.0" layoutX="-422.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@images/fond_rouge.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="294.0" fitWidth="304.0" layoutX="12.0" layoutY="27.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@images/Cacayalogo.png"/>
+                    </image>
+                </ImageView>
+
+                <VBox fx:id="leftMenu" layoutX="40.0" layoutY="437.0" prefHeight="298.0" prefWidth="236.0"
+                      spacing="18.0" style="-fx-padding: -5;">
+
+                    <Button fx:id="btnTous" onAction="#filterAll" prefHeight="82.0" prefWidth="289.0"
+                            style="-fx-background-color: transparent;" text="Tout" textAlignment="CENTER"
+                            textFill="#f3e8d2">
+                        <font>
+                            <Font name="Broadway" size="33.0"/>
+                        </font>
+                        <VBox.margin>
+                            <Insets/>
+                        </VBox.margin>
+                    </Button>
+
+                    <Button fx:id="btnPlats" onAction="#filterPlats" prefHeight="76.0" prefWidth="325.0"
+                            style="-fx-background-color: transparent;" text="Plats" textAlignment="CENTER"
+                            textFill="#f3e8d2">
+                        <font>
+                            <Font size="33.0"/>
+                        </font>
+                    </Button>
+
+                    <Button fx:id="btnSnacks" onAction="#filterSnacks" prefHeight="70.0" prefWidth="260.0"
+                            style="-fx-background-color: transparent;" text="Snacks" textAlignment="CENTER"
+                            textFill="#f3e8d2">
+                        <font>
+                            <Font size="33.0"/>
+                        </font>
+                    </Button>
+
+                    <Button fx:id="btnBoissons" onAction="#filterBoissons" prefHeight="70.0" prefWidth="260.0"
+                            style="-fx-background-color: transparent;" text="Boissons" textAlignment="CENTER"
+                            textFill="#f3e8d2">
+                        <font>
+                            <Font size="30.0"/>
+                        </font>
+                    </Button>
+
+                    <Button fx:id="btnDesserts" onAction="#filterDesserts" prefHeight="70.0" prefWidth="260.0"
+                            style="-fx-background-color: transparent;" text="Desserts" textAlignment="CENTER"
+                            textFill="#f3e8d2">
+                        <font>
+                            <Font size="30.0"/>
+                        </font>
+                    </Button>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+
+                </VBox>
+                <Button fx:id="btnRetour" layoutX="25.0" layoutY="938.0" onAction="#retourAccueil" prefHeight="70.0"
+                        prefWidth="260.0" style="-fx-background-color: transparent;" text="Retour"
+                        textAlignment="CENTER" textFill="#f3e8d2">
+                    <font>
+                        <Font size="30.0"/>
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Pane layoutX="1465.0" layoutY="49.0" prefHeight="906.0" prefWidth="422.0">
+            <children>
+                <Pane layoutX="17.0" layoutY="300.0" prefHeight="454.0" prefWidth="385.0"
+                      style="-fx-background-color: #d7d4d4; -fx-padding: 50;">
+                    <children>
+                        <Line endX="162.0" layoutX="182.0" layoutY="372.0" startX="-140.5" strokeWidth="2.0"/>
+                        <Label fx:id="price" layoutX="90.0" layoutY="386.0" prefHeight="58.0" prefWidth="278.0"
+                               text="Prix : 0,00 €">
+                            <font>
+                                <Font size="37.0"/>
+                            </font>
+                        </Label>
+                        <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="319.0" prefWidth="354.0"
+                                    style="-fx-background-color: #d7d4d4;">
+                            <content>
+                                <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;"/>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </Pane>
+                <Button fx:id="btnPayer" layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goPanier"
+                        prefHeight="124.0" prefWidth="371.0"
+                        style="-fx-background-color: pink; -fx-background-radius: 50;" text="Panier" textFill="WHITE">
+                    <font>
+                        <Font size="45.0"/>
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Line endX="-107.0" endY="840.0" layoutX="427.0" layoutY="270.0" startX="-107.0" startY="-274.0"
+              strokeWidth="4.0"/>
+    </children>
 </AnchorPane>

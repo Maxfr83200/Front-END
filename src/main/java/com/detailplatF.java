@@ -59,7 +59,7 @@ public class detailplatF {
         clip.setArcHeight(60);
         imagePlat.setClip(clip);
 
-        
+
         Runnable updateClip = () -> {
             var b = imagePlat.getLayoutBounds();
             clip.setWidth(b.getWidth());
