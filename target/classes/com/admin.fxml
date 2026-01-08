@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -41,10 +42,11 @@
                   <Font name="Berlin Sans FB" size="45.0" />
                </font>
             </Label>
-            <TextField fx:id="newdescription" layoutX="10.0" layoutY="130.0" prefHeight="172.0" prefWidth="634.0" style="-fx-background-radius: 30;">
+            <TextArea fx:id="newdescription" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 30;" wrapText="true">
                <font>
-                  <Font size="25.0" />
-               </font></TextField>
+                  <Font size="20.0" />
+               </font>
+            </TextArea>
             <Label layoutX="10.0" layoutY="639.0" prefHeight="123.0" prefWidth="624.0" text="Prix" textFill="#5b4949">
                <font>
                   <Font name="Berlin Sans FB" size="45.0" />

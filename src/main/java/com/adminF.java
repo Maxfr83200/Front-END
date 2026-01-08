@@ -2,9 +2,7 @@ package com;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +19,6 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -47,7 +44,7 @@ public class adminF {
     @FXML private TextField searchID;
     @FXML private ChoiceBox<String> dispo;
     @FXML private TextField newnom;
-    @FXML private TextField newdescription;
+    @FXML private TextArea newdescription;
     @FXML private TextField newprix;
 
 
