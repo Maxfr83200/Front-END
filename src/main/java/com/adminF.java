@@ -3,6 +3,7 @@ package com;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -41,12 +42,22 @@ public class adminF {
     private final HttpClient http = HttpClient.newHttpClient();
     private final Gson gson = new Gson();
     private Boolean isFrench;
+    private MenuItem selectedItem;
     @FXML private VBox menuContainer;
     @FXML private TextField searchID;
+    @FXML private ChoiceBox<String> dispo;
+    @FXML private TextField newnom;
+    @FXML private TextField newdescription;
+    @FXML private TextField newprix;
+
 
 
     @FXML
     private void initialize() {
+
+        dispo.getItems().setAll("Dispo", "Non dispo");
+        dispo.setValue("Dispo");
+
 
         // chiffres uniquement
         searchID.textProperty().addListener((obs, oldValue, newValue) -> {
@@ -64,6 +75,7 @@ public class adminF {
             }
         });
     }
+
 
 
 
@@ -217,14 +229,107 @@ public class adminF {
 
         card.setMinHeight(150);
         card.setPrefHeight(150);
+        card.setUserData(item);
 
         card.setMaxWidth(Double.MAX_VALUE);
         card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
-        //card.setOnMouseClicked(e -> goDetail(e, item));
+        card.setOnMouseClicked(e -> {
+            MenuItem clicked = (MenuItem) card.getUserData();
+            fillForm(clicked);
+        });
+
+        card.setStyle("-fx-cursor: hand;");
 
 
 
         return card;
+    }
+
+
+    private void fillForm(MenuItem item) {
+        selectedItem = item;
+        newnom.setText(item.getName());
+        newdescription.setText(item.getDescription());
+        newprix.setText(String.valueOf(item.getPrice()));
+        dispo.setValue(item.isAvailable() ? "Dispo" : "Non dispo");
+    }
+
+
+    @FXML
+    private void saveItem(ActionEvent e) {
+        if (selectedItem == null) {
+            System.out.println("Aucun item sélectionné");
+            return;
+        }
+
+        String name = newnom.getText().trim();
+        String desc = newdescription.getText().trim();
+        String priceText = newprix.getText().trim();
+        boolean available = "Dispo".equals(dispo.getValue());
+
+        if (name.isEmpty() || desc.isEmpty() || priceText.isEmpty()) {
+            System.out.println("Champs manquants");
+            return;
+        }
+
+        double price;
+        try {
+            price = Double.parseDouble(priceText);
+        } catch (NumberFormatException ex) {
+            System.out.println("Prix invalide");
+            return;
+        }
+        int id = selectedItem.getId();
+        selectedItem.setName(name);
+        selectedItem.setDescription(desc);
+        selectedItem.setPrice(price);
+        selectedItem.setAvailable(available);
+
+        updateItemOnApi(id, name, desc, price, available);
+    }
+
+    static class MenuItemUpdateRequest {
+        String name;
+        String description;
+        double price;
+        boolean available;
+
+        MenuItemUpdateRequest(String name, String description, double price, boolean available) {
+            this.name = name;
+            this.description = description;
+            this.price = price;
+            this.available = available;
+        }
+    }
+
+    private void updateItemOnApi(int id, String name, String desc, double price, boolean available) {
+        Task<Void> task = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+
+
+                String url = API_BASE + "/fr/menu/" + id;
+
+                String json = gson.toJson(new MenuItemUpdateRequest(name, desc, price, available));
+
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create(url))
+                        .header("Content-Type", "application/json")
+                        .PUT(HttpRequest.BodyPublishers.ofString(json))
+                        .build();
+
+                HttpResponse<String> response = http.send(request, HttpResponse.BodyHandlers.ofString());
+
+                if (response.statusCode() != 204 && response.statusCode() != 200) {
+                    throw new RuntimeException("API error " + response.statusCode() + " : " + response.body());
+                }
+                return null;
+            }
+        };
+
+        task.setOnSucceeded(ev -> filterAll(null));
+        task.setOnFailed(ev -> task.getException().printStackTrace());
+        new Thread(task, "api-put-basic").start();
     }
 
 }

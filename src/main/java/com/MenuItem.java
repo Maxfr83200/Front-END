@@ -1,5 +1,7 @@
 package com;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MenuItem {
 
     private int id;
@@ -8,9 +10,9 @@ public class MenuItem {
     private double price;
     private String imageUrl;
     private int calories;
-    private boolean isAvailable;
-    private boolean isSpicy;
-    private boolean isVegetarian;
+    private boolean available;
+    private boolean spicy;
+    private boolean vegetarian;
     private boolean proteinRequired;
     private String category;
 
@@ -51,15 +53,15 @@ public class MenuItem {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return available;
     }
 
     public boolean isSpicy() {
-        return isSpicy;
+        return spicy;
     }
 
     public boolean isVegetarian() {
-        return isVegetarian;
+        return vegetarian;
     }
 
     public boolean isProteinRequired() {
@@ -68,5 +70,22 @@ public class MenuItem {
 
     public String getCategory() {
         return category;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 }

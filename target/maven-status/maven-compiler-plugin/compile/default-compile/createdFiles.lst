@@ -1,6 +1,7 @@
 com\adminF$1$1.class
 com\App.class
 com\panierF.class
+com\adminF$2.class
 com\CartModel.class
 com\mainscreenF$1.class
 com\adminF$1.class
@@ -10,5 +11,6 @@ com\MenuItem.class
 com\paiementF.class
 com\mainscreenF.class
 com\mainscreenF$1$1.class
+com\adminF$MenuItemUpdateRequest.class
 com\confirmationF.class
 com\adminF.class
