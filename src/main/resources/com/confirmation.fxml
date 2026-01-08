@@ -19,27 +19,36 @@
                   <Image url="@images/fond_beige.png" />
                </image>
             </ImageView>
-            <Label fx:id="price" layoutX="-38.0" layoutY="839.0" prefHeight="61.0" prefWidth="360.0" text="Prix : 0,00 €">
+            <Label fx:id="price" layoutX="252.0" layoutY="951.0" prefHeight="61.0" prefWidth="360.0" text="Total : 0,00 €">
                <font>
-                  <Font size="58.0" />
+                  <Font name="Berlin Sans FB" size="61.0" />
                </font>
             </Label>
+            <Label layoutX="131.0" layoutY="41.0" prefHeight="115.0" prefWidth="1077.0" text="Confirmation de paiement">
+               <font>
+                  <Font name="Bauhaus 93" size="85.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="62.0" layoutY="194.0" prefHeight="679.0" prefWidth="1154.0" style="-fx-background-color: transparent;">
+               <content>
+                  <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
+               </content>
+            </ScrollPane>
+            <Button layoutX="699.0" layoutY="932.0" mnemonicParsing="false" onAction="#retourAcceuil" prefHeight="92.0" prefWidth="333.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Payer">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <Label layoutX="735.0" layoutY="-6.0" prefHeight="115.0" prefWidth="451.0" text="CONFIRMATION">
-         <font>
-            <Font size="61.0" />
-         </font>
-      </Label>
-      <Button layoutX="1495.0" layoutY="827.0" mnemonicParsing="false" onAction="#retourAcceuil" prefHeight="92.0" prefWidth="333.0" text="Retour à l'accueil">
-         <font>
-            <Font size="28.0" />
-         </font>
+      <Button fx:id="retourEcranMenu" layoutX="90.0" layoutY="66.0" mnemonicParsing="false" onAction="#goPanier" prefHeight="65.0" prefWidth="124.0" style="-fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="72.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/retour.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
-      <ScrollPane layoutX="118.0" layoutY="153.0" prefHeight="651.0" prefWidth="668.0" style="-fx-background-color: #d7d4d4;">
-         <content>
-            <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>
