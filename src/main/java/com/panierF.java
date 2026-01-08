@@ -18,9 +18,19 @@ import javafx.scene.Scene;
 public class panierF {
 
     private Boolean isFrench;
+    @FXML private Label textTitle;
+    @FXML private Button btnConfirmer;
 
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
+
+        if (Boolean.TRUE.equals(isFrench)) {
+            textTitle.setText("Votre Panier");
+            btnConfirmer.setText("Confirmer");
+        } else {
+            textTitle.setText("Your Cart");
+            btnConfirmer.setText("Confirm");
+        }
     }
 
 
@@ -66,6 +76,11 @@ public class panierF {
 
         if (cart.getQuantities().isEmpty()) {
             Label empty = new Label("Votre panier est vide");
+            if (Boolean.TRUE.equals(isFrench)) {
+                empty = new Label("Votre panier est vide");
+            } else {
+                empty = new Label("Your cart is empty");
+            }
             empty.setStyle("-fx-font-size: 18px; -fx-text-fill: grey;");
             cartContainer.getChildren().add(empty);
             updateTotalprice();

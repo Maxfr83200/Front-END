@@ -318,7 +318,14 @@ public class mainscreenF {
 
 
         if (!item.isAvailable()) {
-            Label unavailable = new Label("Victime de votre succ\u00E8s");
+            Label unavailable;
+            if(Boolean.TRUE.equals(isFrench))
+            {
+                unavailable = new Label("Victime de votre succ\u00E8s");
+            }
+            else{
+                unavailable = new Label("Victim of its success");
+            }
             unavailable.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
             texts.getChildren().add(unavailable);
         }

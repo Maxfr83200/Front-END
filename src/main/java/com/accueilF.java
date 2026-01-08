@@ -23,11 +23,15 @@ public class accueilF {
     @FXML
     private TextField codeAdmin;
 
+    @FXML
+    private Button btnAdmin;
+
     private Boolean isFrench = true;
 
     @FXML
     public void switchToFrench(ActionEvent event) {
-        instructionLabel.setText("Touche pour commencer");
+        instructionLabel.setText("Toucher pour commencer");
+        btnAdmin.setText("Accès admin");
         System.out.println("Langue changée en Français");
         isFrench = true;
     }
@@ -35,6 +39,7 @@ public class accueilF {
     @FXML
     public void switchToEnglish(ActionEvent event) {
         instructionLabel.setText("Touch to start");
+        btnAdmin.setText("Admin access");
         System.out.println("Language switched to English");
         isFrench = false;
     }
