@@ -1,0 +1,21 @@
+## Prérequis
+
+* **Java JDK** (version compatible avec le backend)
+* **IntelliJ IDEA**
+* **Backend opérationnel** : le serveur API doit être en cours d'exécution et connecté à la base de données
+
+## Installation et Lancement
+
+### Étape 1 : Vérifier le Backend
+Assurez-vous que le backend est en cours d'exécution dans une autre fenêtre IntelliJ ou terminal. Si le backend est arrêté, le frontend ne peut pas récupérer les données.
+
+### Étape 2 : Ouvrir le Projet
+1. Ouvrez le dossier du projet frontend avec **IntelliJ IDEA**
+2. Laissez Maven télécharger les dépendances requises
+
+### Étape 3 : Lancer via Maven (Recommandé)
+Pour éviter les erreurs de configuration JavaFX, utilisez le plugin Maven intégré :
+
+1. Cliquez sur l'onglet vertical **Maven** sur le côté droit d'IntelliJ
+2. Développez l'arborescence : `demo-javafx` (ou le nom de votre projet) > `Plugins` > `javafx`
+3. Double-cliquez sur `javafx:run` (ou recherchez `demo-javafx [javafx:run]` dans vos configurations d'exécution)
