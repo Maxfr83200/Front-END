@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane   onMouseClicked="#startCommand"  fx:controller="com.paiementF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#startCommand" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.paiementF">
    <children>
       <Pane prefHeight="1080.0" prefWidth="1920.0">
          <children>
@@ -26,7 +25,7 @@
                         <Image url="@images/cacaya.png" />
                      </image>
                   </ImageView>
-                  <Text fill="#6b5353" strokeType="OUTSIDE" strokeWidth="0.0" text="vous remercie de votre visite" wrappingWidth="1150.13671875">
+                  <Text fx:id="textRemerciement" fill="#6b5353" strokeType="OUTSIDE" strokeWidth="0.0" text="vous remercie de votre visite" wrappingWidth="1150.13671875">
                      <font>
                         <Font name="Berlin Sans FB" size="96.0" />
                      </font>
@@ -38,7 +37,7 @@
             </HBox>
             <HBox layoutX="559.0" layoutY="111.0" prefHeight="116.0" prefWidth="843.0">
                <children>
-                  <Text fill="#5e4141" strokeType="OUTSIDE" strokeWidth="0.0" text="Paiement réussi">
+                  <Text fx:id="textTitle" fill="#5e4141" strokeType="OUTSIDE" strokeWidth="0.0" text="Paiement réussi">
                      <font>
                         <Font name="Bauhaus 93" size="96.0" />
                      </font>
@@ -53,12 +52,12 @@
                   </ImageView>
                </children>
             </HBox>
-            <Text fill="#bc8282" layoutX="600.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro de commande #CB12" wrappingWidth="740.13671875">
+            <Text fx:id="textnumCommande" fill="#bc8282" layoutX="600.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro de commande #CB12" wrappingWidth="740.13671875">
                <font>
                   <Font name="Berlin Sans FB" size="58.0" />
                </font>
             </Text>
-            <Text fill="#755e5e" layoutX="584.0" layoutY="792.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Touchez pour revenir à l'accueil" wrappingWidth="804.13671875">
+            <Text fx:id="textRetour" fill="#755e5e" layoutX="584.0" layoutY="792.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Touchez pour revenir à l'accueil" wrappingWidth="804.13671875">
                <font>
                   <Font name="Berlin Sans FB" size="58.0" />
                </font>

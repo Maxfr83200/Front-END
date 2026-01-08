@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 import javafx.scene.text.Font;
 
+import javax.swing.text.StyledEditorKit;
 import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -74,15 +75,55 @@ public class adminF {
     @FXML
     private Label textTitle;
 
+    public void setLanguage(Boolean isFrench) {
+        this.isFrench = isFrench;
+
+        String currentStatus = null;
+        if (selectedItem != null) {
+            currentStatus = selectedItem.isAvailable() ? "true" : "false";
+        }
+
+        if (Boolean.TRUE.equals(isFrench)) {
+            textDescription.setText("Description");
+            textDisponibilite.setText("Disponibilite");
+            textNom.setText("Nom");
+            textPrix.setText("Prix");
+            textTitle.setText("Interface Admin");
+            textRecherche.setText("Recherche ID");
+            btnEnregistrer.setText("Enregistrer");
+
+            dispo.getItems().setAll("Dispo", "Non dispo");
+
+            if (selectedItem != null) {
+                dispo.setValue(selectedItem.isAvailable() ? "Dispo" : "Non dispo");
+            } else {
+                dispo.setValue("Dispo");
+            }
+
+        } else {
+            textDescription.setText("Description");
+            textDisponibilite.setText("Availability");
+            textNom.setText("Name");
+            textPrix.setText("Price");
+            textTitle.setText("Admin Interface");
+            textRecherche.setText("Search ID");
+            btnEnregistrer.setText("Save");
+
+            dispo.getItems().setAll("Available", "Unavailable");
+
+            if (selectedItem != null) {
+                dispo.setValue(selectedItem.isAvailable() ? "Available" : "Unavailable");
+            } else {
+                dispo.setValue("Available");
+            }
+        }
+
+        filterAll(null);
+    }
 
     @FXML
     private void initialize() {
 
-        dispo.getItems().setAll("Dispo", "Non dispo");
-        dispo.setValue("Dispo");
-
-
-        // chiffres uniquement
         searchID.textProperty().addListener((obs, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 searchID.setText(newValue.replaceAll("[^\\d]", ""));
@@ -111,30 +152,6 @@ public class adminF {
         });
     }
 
-
-    public void setLanguage(Boolean isFrench) {
-        this.isFrench = isFrench;
-
-        if (Boolean.TRUE.equals(isFrench)) {
-            textDescription.setText("Description");
-            textDisponibilite.setText("Disponibilite");
-            textNom.setText("Nom");
-            textPrix.setText("Prix");
-            textTitle.setText("Interface Admin");
-            textRecherche.setText("Recherche ID");
-            btnEnregistrer.setText("Enregistrer");
-
-        } else {
-            textDescription.setText("Description");
-            textDisponibilite.setText("Availability");
-            textNom.setText("Name");
-            textPrix.setText("Price");
-            textTitle.setText("Admin Interface");
-            textRecherche.setText("Search ID");
-            btnEnregistrer.setText("Save");
-        }
-        filterAll(null);
-    }
 
     public void retourAcceuil(ActionEvent event) {
 

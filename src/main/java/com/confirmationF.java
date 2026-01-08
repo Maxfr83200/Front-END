@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,14 +18,29 @@ import java.io.IOException;
 public class confirmationF {
     private Boolean isFrench;
 
+    @FXML private Label textTitle;
+    @FXML private Button btnPayer;
+
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
+        if(isFrench){
+            textTitle.setText("Confirmation de paiement");
+            btnPayer.setText("Payer");
+        }
+        else {
+            textTitle.setText("Payment Confirmation");
+            btnPayer.setText("Pay");
+        }
     }
 
     @FXML
     public void initialize() {
         updateTotalprice();
         refreshCartUI();
+
+        if (cart.getQuantities().isEmpty()) {
+            btnPayer.setDisable(true);
+        }
     }
 
     CartModel cart = CartModel.getInstance();
@@ -80,11 +97,20 @@ public class confirmationF {
 
 
     public void goPaiement(ActionEvent event) {
+
+        if (CartModel.getInstance().getQuantities().isEmpty()) {
+            System.out.println("Impossible de payer : Le panier est vide.");
+            return;
+        }
+
         CartModel.getInstance().clear();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/paiement.fxml"));
         try {
             Parent root = loader.load();
+            paiementF mainCtrl = loader.getController();
+            mainCtrl.setLanguage(isFrench);
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -100,14 +126,14 @@ public class confirmationF {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/panier.fxml"));
         try {
             Parent root = loader.load();
-            mainscreenF mainCtrl = loader.getController();
+
+            panierF mainCtrl = loader.getController();
             mainCtrl.setLanguage(isFrench);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
 
         } catch (IOException e) {
             e.printStackTrace();

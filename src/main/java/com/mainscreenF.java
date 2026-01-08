@@ -1,7 +1,10 @@
 package com;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
@@ -358,14 +361,14 @@ public class mainscreenF {
         }
 
         VBox texts = new VBox(4);
+        HBox.setHgrow(texts, Priority.ALWAYS);
 
         Label namePrice = new Label(item.getName() + " - " + item.getPrice() + "0\u20AC");
         namePrice.setStyle("-fx-text-fill: black; -fx-font-size: 18px;");
 
         HBox titleLine = new HBox(6);
-        titleLine.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        titleLine.setAlignment(Pos.CENTER_LEFT);
         titleLine.getChildren().add(namePrice);
-
 
         if (item.isSpicy()) {
             var is = getClass().getResourceAsStream("/com/images/spicy.png");
@@ -388,14 +391,15 @@ public class mainscreenF {
                 titleLine.getChildren().add(vegeIcon);
             }
         }
+
         Label desc = new Label(item.getDescription());
         desc.setStyle("-fx-text-fill: black; -fx-font-size: 14px;");
+        desc.setWrapText(true);
+
         Label calories = new Label(item.getCalories() + " kcal");
         calories.setStyle("-fx-text-fill: black; -fx-font-size: 14px;");
 
         texts.getChildren().addAll(titleLine, desc, calories);
-
-
 
         if (!item.isAvailable()) {
             Label unavailable;
@@ -408,11 +412,33 @@ public class mainscreenF {
             texts.getChildren().add(unavailable);
         }
 
-        HBox card = new HBox(12, img, texts);
+        Button btnQuickAdd = new Button("+");
+        btnQuickAdd.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 30; -fx-min-width: 40; -fx-min-height: 40;");
+
+        // Action du bouton
+        btnQuickAdd.setOnAction(event -> {
+            event.consume();
+
+            String protein = null;
+            if (item.isProteinRequired()) {
+                protein = Boolean.TRUE.equals(isFrench) ? "Boeuf" : "Beef";
+            }
+
+            CartModel.getInstance().addItem(item, protein, 1);
+
+            refreshCartUI();
+            updateTotalprice();
+        });
+
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        HBox card = new HBox(12, img, texts, spacer, btnQuickAdd);
+
+        card.setAlignment(Pos.CENTER_LEFT);
         card.setMinHeight(150);
         card.setPrefHeight(150);
         card.setMaxWidth(Double.MAX_VALUE);
-
 
         card.setStyle("""
                     -fx-background-color: white;
@@ -420,7 +446,6 @@ public class mainscreenF {
                     -fx-padding: 15;
                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 4);
                 """);
-
 
         if (!item.isAvailable()) {
             card.setDisable(true);
