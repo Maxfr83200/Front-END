@@ -11,6 +11,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#startCommand" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.accueilF">
    <children>
+      <ImageView fitHeight="1288.0" fitWidth="1928.0" layoutX="-8.0" layoutY="-82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/fond_rouge2.png" />
+         </image>
+      </ImageView>
       <HBox layoutX="701.0" layoutY="848.0" prefHeight="173.0" prefWidth="294.0">
          <children>
       
@@ -42,13 +47,13 @@
          </children>
       </HBox>
 
-      <Label fx:id="instructionLabel" layoutX="387.0" layoutY="632.0" prefHeight="254.0" prefWidth="1140.0" text="Toucher pour commencer" textAlignment="CENTER" textFill="#513b3b">
+      <Label fx:id="instructionLabel" layoutX="387.0" layoutY="632.0" prefHeight="110.0" prefWidth="1102.0" text="Toucher pour commencer" textAlignment="CENTER" textFill="#f3e8d2">
          <font>
             <Font name="Bauhaus 93" size="96.0" />
          </font>
       </Label>
 
-      <Button fx:id="btnAdmin" layoutX="150.0" layoutY="22.0" mnemonicParsing="false" onAction="#goAdmin" prefHeight="43.0" prefWidth="108.0" style="-fx-background-radius: 30; -fx-background-color: #DCB5B5;" text="Accès admin">
+      <Button fx:id="btnAdmin" layoutX="1602.0" layoutY="22.0" mnemonicParsing="false" onAction="#goAdmin" prefHeight="43.0" prefWidth="163.0" style="-fx-background-radius: 30; -fx-background-color: pink;" text="Accès admin">
          <font>
             <Font size="15.0" />
          </font>
@@ -58,6 +63,6 @@
             <Image url="@images/Cacayalogo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="codeAdmin" layoutX="25.0" layoutY="21.0" prefHeight="47.0" prefWidth="119.0" promptText="XXXX" style="-fx-background-color: #E9E5E5;-fx-border-color: #CECECE;-fx-alignment: center;-fx-font-size: 18px;" />
+      <TextField fx:id="codeAdmin" layoutX="1779.0" layoutY="21.0" prefHeight="47.0" prefWidth="119.0" promptText="XXXX" style="-fx-background-color: #E9E5E5;-fx-border-color: #CECECE;-fx-alignment: center;-fx-font-size: 18px;" />
    </children>
 </AnchorPane>

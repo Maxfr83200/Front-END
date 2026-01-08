@@ -30,7 +30,7 @@
         </Pane>
         <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1115.0" prefWidth="323.0">
             <children>
-                <ImageView fitHeight="1116.0" fitWidth="1166.0" layoutX="-422.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="1287.0" fitWidth="1686.0" layoutX="-1362.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@images/fond_rouge.png" />
                     </image>
