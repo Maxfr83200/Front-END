@@ -47,6 +47,14 @@ public class adminF {
     @FXML private TextArea newdescription;
     @FXML private TextField newprix;
 
+    @FXML private Label textRecherche;
+    @FXML private Label textNom;
+    @FXML private Label textDescription;
+    @FXML private Label textPrix;
+    @FXML private Label textDisponibilite;
+    @FXML private Button btnEnregistrer;
+    @FXML private Label textTitle;
+
 
 
     @FXML
@@ -80,9 +88,22 @@ public class adminF {
         this.isFrench = isFrench;
 
         if (Boolean.TRUE.equals(isFrench)) {
+            textDescription.setText("Description");
+            textDisponibilite.setText("Disponibilite");
+            textNom.setText("Nom");
+            textPrix.setText("Prix");
+            textTitle.setText("Interface Admin");
+            textRecherche.setText("Recherche ID");
+            btnEnregistrer.setText("Enregistrer");
 
         } else {
-
+            textDescription.setText("Description");
+            textDisponibilite.setText("Availability");
+            textNom.setText("Name");
+            textPrix.setText("Price");
+            textTitle.setText("Admin Interface");
+            textRecherche.setText("Search ID");
+            btnEnregistrer.setText("Save");
         }
         filterAll(null);
     }
@@ -248,7 +269,11 @@ public class adminF {
         newnom.setText(item.getName());
         newdescription.setText(item.getDescription());
         newprix.setText(String.valueOf(item.getPrice()));
-        dispo.setValue(item.isAvailable() ? "Dispo" : "Non dispo");
+        if (Boolean.TRUE.equals(isFrench)) {
+            dispo.setValue(item.isAvailable() ? "Dispo" : "Non dispo");
+        } else {
+            dispo.setValue(item.isAvailable() ? "Available" : "Unavailable");
+        }
     }
 
 
@@ -263,6 +288,11 @@ public class adminF {
         String desc = newdescription.getText().trim();
         String priceText = newprix.getText().trim();
         boolean available = "Dispo".equals(dispo.getValue());
+        if (Boolean.TRUE.equals(isFrench)) {
+            available = "Dispo".equals(dispo.getValue());
+        } else {
+            available = "Available".equals(dispo.getValue());
+        }
 
         if (name.isEmpty() || desc.isEmpty() || priceText.isEmpty()) {
             System.out.println("Champs manquants");

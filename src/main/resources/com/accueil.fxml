@@ -42,13 +42,13 @@
          </children>
       </HBox>
 
-      <Label fx:id="instructionLabel" layoutX="387.0" layoutY="632.0" prefHeight="254.0" prefWidth="1140.0" text="Touchez pour commander" textFill="#513b3b">
+      <Label fx:id="instructionLabel" layoutX="387.0" layoutY="632.0" prefHeight="254.0" prefWidth="1140.0" text="Toucher pour commencer" textFill="#513b3b">
          <font>
             <Font name="Bauhaus 93" size="96.0" />
          </font>
       </Label>
 
-      <Button layoutX="150.0" layoutY="22.0" mnemonicParsing="false" onAction="#goAdmin" prefHeight="43.0" prefWidth="108.0" style="-fx-background-radius: 30; -fx-background-color: #DCB5B5;" text="Accès admin">
+      <Button fx:id="btnAdmin" layoutX="150.0" layoutY="22.0" mnemonicParsing="false" onAction="#goAdmin" prefHeight="43.0" prefWidth="108.0" style="-fx-background-radius: 30; -fx-background-color: #DCB5B5;" text="Accès admin">
          <font>
             <Font size="15.0" />
          </font>
