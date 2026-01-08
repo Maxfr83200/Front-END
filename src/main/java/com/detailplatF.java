@@ -27,6 +27,7 @@ public class detailplatF {
 
 
 
+
     @FXML private Text quantityText;
     @FXML private ImageView imagePlat;
     @FXML private Text afficheNom;
@@ -86,6 +87,40 @@ public class detailplatF {
 
         rbBoeuf.setSelected(true);
     }
+
+
+    @FXML
+    private void onProteinChanged() {
+        if (proteinGroup.getSelectedToggle() == null || item == null) return;
+
+        RadioButton selected =
+                (RadioButton) proteinGroup.getSelectedToggle();
+
+        String protein = selected.getText();
+
+        switch (protein) {
+            case "Poulet" -> setProteinImage("poulet");
+            case "Boeuf" -> setProteinImage("boeuf");
+            case "Tofu" -> setProteinImage("tofu");
+            case "Crevette" -> setProteinImage("crevette");
+        }
+    }
+
+    private void setProteinImage(String protein) {
+
+        // ex : ramen_boeuf.png, ramen_tofu.png...
+        String baseName = item.getImageUrl().replace(".png", "");
+
+        String path = "/" + baseName + "_" + protein + ".png";
+
+        var stream = getClass().getResourceAsStream(path);
+        if (stream != null) {
+            imagePlat.setImage(new Image(stream));
+        } else {
+            System.err.println("Image protéine introuvable : " + path);
+        }
+    }
+
 
 
 

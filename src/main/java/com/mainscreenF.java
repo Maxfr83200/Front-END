@@ -299,36 +299,54 @@ public class mainscreenF {
         img.setPreserveRatio(true);
 
         String imagePath = item.getImageUrl();
-
         if (imagePath != null && !imagePath.isBlank()) {
-
             var inputStream = getClass().getResourceAsStream("/" + imagePath);
             if (inputStream != null) {
-                Image image = new Image(inputStream);
-                img.setImage(image);
+                img.setImage(new Image(inputStream));
             } else {
                 System.err.println("Image introuvable : " + imagePath);
             }
         }
 
         VBox texts = new VBox(4);
-        texts.getChildren().addAll(
-                new Label(item.getName() + " - " + item.getPrice() + "0\u20AC"),
-                new Label(item.getDescription()),
-                new Label(item.getCalories() + " kcal")
-        );
+
+        Label namePrice = new Label(item.getName() + " - " + item.getPrice() + "0\u20AC");
+        Label desc = new Label(item.getDescription());
+        Label calories = new Label(item.getCalories() + " kcal");
+
+        texts.getChildren().addAll(namePrice, desc, calories);
+
+
+        if (!item.isAvailable()) {
+            Label unavailable = new Label("Victime de votre succ\u00E8s");
+            unavailable.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            texts.getChildren().add(unavailable);
+        }
 
         HBox card = new HBox(12, img, texts);
-
         card.setMinHeight(150);
         card.setPrefHeight(150);
-
         card.setMaxWidth(Double.MAX_VALUE);
-        card.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;");
-        card.setOnMouseClicked(e -> goDetail(e, item));
 
 
+        card.setStyle("""
+        -fx-padding: 10;
+        -fx-border-color: #ddd;
+        -fx-border-radius: 8;
+        -fx-background-radius: 8;
+    """);
+
+
+        if (!item.isAvailable()) {
+            card.setDisable(true);
+            card.setOpacity(0.6);
+            card.setStyle(card.getStyle() + "-fx-background-color: #f5f5f5;");
+        } else {
+            card.setOnMouseClicked(e -> goDetail(e, item));
+            card.setStyle(card.getStyle() + "-fx-cursor: hand;");
+        }
 
         return card;
     }
+
 }

@@ -75,16 +75,16 @@
                      <Font size="30.0" />
                   </font>
                </Button>
-               <Button fx:id="btnRetour" onAction="#retourAccueil" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Retour" textAlignment="CENTER" textFill="#f3e8d2">
-                  <font>
-                     <Font size="30.0" />
-                  </font>
-               </Button>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
       
                   </VBox>
+            <Button fx:id="btnRetour" layoutX="25.0" layoutY="938.0" onAction="#retourAccueil" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Retour" textAlignment="CENTER" textFill="#f3e8d2">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane layoutX="1465.0" layoutY="49.0" prefHeight="906.0" prefWidth="422.0">

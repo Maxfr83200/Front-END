@@ -46,7 +46,7 @@
       <HBox fx:id="proteinBox" layoutX="1022.0" layoutY="591.0" prefHeight="87.0" prefWidth="856.0">
          <children>
 
-            <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Boeuf">
+            <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Boeuf" onAction="#onProteinChanged">
                <font>
                   <Font size="27.0" />
                </font>
@@ -54,17 +54,17 @@
                   <ToggleGroup fx:id="proteinGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rbPoulet" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup">
+            <RadioButton fx:id="rbPoulet" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup" onAction="#onProteinChanged">
                <font>
                   <Font size="27.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbCrevette" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Crevette" toggleGroup="$proteinGroup">
+            <RadioButton fx:id="rbCrevette" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Crevette" toggleGroup="$proteinGroup" onAction="#onProteinChanged">
                <font>
                   <Font size="27.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbTofu" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Tofu" toggleGroup="$proteinGroup">
+            <RadioButton fx:id="rbTofu" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Tofu" toggleGroup="$proteinGroup" onAction="#onProteinChanged">
                <font>
                   <Font size="27.0" />
                </font>
