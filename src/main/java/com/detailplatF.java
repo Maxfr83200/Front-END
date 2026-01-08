@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,18 +21,13 @@ import java.io.IOException;
 
 public class detailplatF {
 
-    @FXML
-    private HBox proteinBox;
-    @FXML
-    private RadioButton rbPoulet;
-    @FXML
-    private RadioButton rbBoeuf;
-    @FXML
-    private RadioButton rbTofu;
-    @FXML
-    private RadioButton rbCrevette;
-    @FXML
-    private ToggleGroup proteinGroup;
+    @FXML private HBox proteinBox;
+    @FXML private RadioButton rbPoulet;
+    @FXML private RadioButton rbBoeuf;
+    @FXML private RadioButton rbTofu;
+    @FXML private RadioButton rbCrevette;
+    @FXML private ToggleGroup proteinGroup;
+    @FXML private Button btnAjoutPanier;
 
 
     @FXML
@@ -48,6 +44,24 @@ public class detailplatF {
     private MenuItem item;
     private boolean isFrench;
     private int quantity = 1;
+
+    public void setLanguage(boolean isFrench) {
+        this.isFrench = isFrench;
+        if(isFrench){
+            rbBoeuf.setText("Boeuf");
+            rbCrevette.setText("Crevette");
+            rbPoulet.setText("Poulet");
+            btnAjoutPanier.setText("Ajouter au Panier");
+        }
+        else {
+            rbBoeuf.setText("Beef");
+            rbCrevette.setText("Shrimp");
+            rbPoulet.setText("Chicken");
+            btnAjoutPanier.setText("Add to Cart");
+        }
+        rbTofu.setText("Tofu");
+        refreshQtyUI();
+    }
 
     @FXML
     private void initialize() {
@@ -91,6 +105,7 @@ public class detailplatF {
             refreshQtyUI();
         }
     }
+
 
 
     private void hideProteinOptions() {
@@ -154,6 +169,11 @@ public class detailplatF {
     }
 
 
+
+
+
+
+
     CartModel cart = CartModel.getInstance();
 
     @FXML
@@ -189,16 +209,17 @@ public class detailplatF {
     }
 
     private void refreshQtyUI() {
-        if (quantityText != null) quantityText.setText(String.valueOf("Quantit\u00E9 : " + quantity));
+        if(Boolean.TRUE.equals(isFrench)){
+            if (quantityText != null) quantityText.setText(String.valueOf("Quantit\u00E9 : "+quantity));
+        }
+        else{
+            if (quantityText != null) quantityText.setText(String.valueOf("Quantity : "+quantity));
+        }
 
         if (item != null && affichePrix != null) {
             double total = item.getPrice() * quantity;
             affichePrix.setText(String.format("%.2f \u20AC", total));
         }
-    }
-
-    public void setLanguage(boolean isFrench) {
-        this.isFrench = isFrench;
     }
 
     public void setItem(MenuItem item) {

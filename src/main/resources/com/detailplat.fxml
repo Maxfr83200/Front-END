@@ -25,7 +25,7 @@
          </children>
       </Pane>
       <ImageView fx:id="imagePlat" fitHeight="624.0" fitWidth="668.0" layoutX="176.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="ajoutPanier" layoutX="1172.0" layoutY="825.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Ajouter au panier">
+      <Button fx:id="btnAjoutPanier" layoutX="1172.0" layoutY="825.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Ajouter au panier">
          <font>
             <Font size="45.0" />
          </font>

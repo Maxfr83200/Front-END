@@ -31,7 +31,7 @@ public class accueilF {
     @FXML
     public void switchToFrench(ActionEvent event) {
         instructionLabel.setText("Toucher pour commencer");
-        btnAdmin.setText("Accès admin");
+        btnAdmin.setText("Acc\u00E8s admin");
         System.out.println("Langue changée en Français");
         isFrench = true;
     }
