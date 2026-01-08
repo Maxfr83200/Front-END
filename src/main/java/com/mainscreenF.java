@@ -360,11 +360,11 @@ public class mainscreenF {
         VBox texts = new VBox(4);
 
         Label namePrice = new Label(item.getName() + " - " + item.getPrice() + "0\u20AC");
-        namePrice.setStyle("-fx-text-fill: black; ");
+        namePrice.setStyle("-fx-text-fill: black; -fx-font-size: 18px;");
         Label desc = new Label(item.getDescription());
-        desc.setStyle("-fx-text-fill: black; ");
+        desc.setStyle("-fx-text-fill: black; -fx-font-size: 14px;");
         Label calories = new Label(item.getCalories() + " kcal");
-        calories.setStyle("-fx-text-fill: black; ");
+        calories.setStyle("-fx-text-fill: black; -fx-font-size: 14px;");
 
         texts.getChildren().addAll(namePrice, desc, calories);
 

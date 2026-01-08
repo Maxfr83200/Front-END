@@ -269,9 +269,9 @@ public class adminF {
         Label l3 = new Label(item.getCalories() + " kcal");
 
 
-        l1.setStyle("-fx-text-fill: black;");
-        l2.setStyle("-fx-text-fill: black;");
-        l3.setStyle("-fx-text-fill: black;");
+        l1.setStyle("-fx-text-fill: black; -fx-font-size: 18px;");
+        l2.setStyle("-fx-text-fill: black;-fx-font-size: 14px;");
+        l3.setStyle("-fx-text-fill: black;-fx-font-size: 14px;");
 
         texts.getChildren().addAll(l1, l2, l3);
 
