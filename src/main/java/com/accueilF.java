@@ -2,8 +2,11 @@ package com;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.effect.InnerShadow;
 
 import java.io.IOException;
 
@@ -27,6 +30,24 @@ public class accueilF {
     private Button btnAdmin;
 
     private Boolean isFrench = true;
+
+    @FXML
+    public void initialize() {
+        //pour ajouter effet d'ombre portée sur le champ code
+        InnerShadow innerShadow = new InnerShadow();
+        innerShadow.setRadius(5.0);
+        innerShadow.setOffsetX(2.0);
+        innerShadow.setOffsetY(2.0);
+        innerShadow.setColor(Color.rgb(0, 0, 0, 0.7));
+
+        codeAdmin.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                codeAdmin.setEffect(innerShadow);
+            } else {
+                codeAdmin.setEffect(null);
+            }
+        });
+    }
 
     @FXML
     public void switchToFrench(ActionEvent event) {

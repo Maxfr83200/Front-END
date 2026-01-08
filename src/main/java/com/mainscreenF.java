@@ -28,6 +28,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.effect.InnerShadow;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -70,11 +72,11 @@ public class mainscreenF {
 
         if (Boolean.TRUE.equals(isFrench)) {
             // Version Française
-            if (btnTous != null) btnTous.setText("Tous");
+            if (btnTous != null) btnTous.setText("Tout");
             if (btnPlats != null) btnPlats.setText("Plats");
             if (btnSnacks != null) btnSnacks.setText("Snacks");
             if (btnBoissons != null) btnBoissons.setText("Boissons");
-            if (btnPayer != null) btnPayer.setText("Paiement");
+            if (btnPayer != null) btnPayer.setText("Panier");
             if (btnRetour != null) btnRetour.setText("Retour");
         } else {
             // Version Anglaise
@@ -82,7 +84,7 @@ public class mainscreenF {
             if (btnPlats != null) btnPlats.setText("Dishes");
             if (btnSnacks != null) btnSnacks.setText("Snacks");
             if (btnBoissons != null) btnBoissons.setText("Drinks");
-            if (btnPayer != null) btnPayer.setText("Payement");
+            if (btnPayer != null) btnPayer.setText("Cart");
             if (btnRetour != null) btnRetour.setText("Return");
         }
         if (btnDesserts != null) btnDesserts.setText("Desserts");
@@ -243,6 +245,22 @@ public class mainscreenF {
                 if (corner != null) corner.setStyle("-fx-background-color: transparent;");
             }
         });
+
+        InnerShadow clickEffect = new InnerShadow();
+        clickEffect.setRadius(10.0);
+        clickEffect.setOffsetX(3.0);
+        clickEffect.setOffsetY(3.0);
+        clickEffect.setColor(Color.rgb(0, 0, 0, 0.6));
+
+        if (btnPayer != null) {
+            btnPayer.setOnMousePressed(event -> {
+                btnPayer.setEffect(clickEffect);
+            });
+
+            btnPayer.setOnMouseReleased(event -> {
+                btnPayer.setEffect(null);
+            });
+        }
     }
 
 
@@ -412,8 +430,8 @@ public class mainscreenF {
             texts.getChildren().add(unavailable);
         }
 
-        Button btnQuickAdd = new Button("+");
-        btnQuickAdd.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 30; -fx-min-width: 40; -fx-min-height: 40;");
+        Button btnQuickAdd = new Button("Ajouter");
+        btnQuickAdd.setStyle("-fx-background-color: #60834E; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 20; -fx-min-width: 200; -fx-min-height: 40;");
 
         // Action du bouton
         btnQuickAdd.setOnAction(event -> {
@@ -428,6 +446,20 @@ public class mainscreenF {
 
             refreshCartUI();
             updateTotalprice();
+        });
+
+        InnerShadow clickEffect = new InnerShadow();
+        clickEffect.setRadius(8.0);
+        clickEffect.setOffsetX(2.0);
+        clickEffect.setOffsetY(2.0);
+        clickEffect.setColor(Color.rgb(0, 0, 0, 0.6));
+
+        btnQuickAdd.setOnMousePressed(event -> {
+            btnQuickAdd.setEffect(clickEffect);
+        });
+
+        btnQuickAdd.setOnMouseReleased(event -> {
+            btnQuickAdd.setEffect(null);
         });
 
         Region spacer = new Region();

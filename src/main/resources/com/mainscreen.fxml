@@ -21,7 +21,7 @@
                         <Image url="@images/fond_beige.png" />
                     </image>
                 </ImageView>
-                <ScrollPane fx:id="menuScroll" fitToWidth="true" layoutX="175.0" layoutY="92.0" prefHeight="885.0" prefWidth="634.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+                <ScrollPane fx:id="menuScroll" fitToWidth="true" layoutX="92.0" layoutY="92.0" prefHeight="899.0" prefWidth="989.0" style="-fx-background-color: transparent; -fx-background: transparent;">
                     <content>
                         <VBox fx:id="menuContainer" spacing="10" />
                     </content>
@@ -30,12 +30,12 @@
         </Pane>
         <Pane layoutX="-3.0" layoutY="-4.0" prefHeight="1115.0" prefWidth="323.0">
             <children>
-                <ImageView fitHeight="1287.0" fitWidth="1686.0" layoutX="-1362.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="1287.0" fitWidth="1686.0" layoutX="-1362.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 8, 0);">
                     <image>
                         <Image url="@images/fond_rouge.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="294.0" fitWidth="304.0" layoutX="12.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="271.0" fitWidth="274.0" layoutX="25.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@images/Cacayalogo.png" />
                     </image>
@@ -80,7 +80,7 @@
                     </opaqueInsets>
 
                 </VBox>
-                <Button fx:id="btnRetour" layoutX="25.0" layoutY="938.0" onAction="#retourAccueil" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Retour" textAlignment="CENTER" textFill="#f3e8d2">
+                <Button fx:id="btnRetour" layoutX="25.0" layoutY="920.0" onAction="#retourAccueil" prefHeight="70.0" prefWidth="260.0" style="-fx-background-color: transparent;" text="Retour" textAlignment="CENTER" textFill="#f3e8d2">
                     <font>
                         <Font name="Bauhaus 93" size="40.0" />
                     </font>
@@ -89,28 +89,27 @@
         </Pane>
         <Pane layoutX="1465.0" layoutY="49.0" prefHeight="906.0" prefWidth="422.0">
             <children>
-                <Pane layoutX="17.0" layoutY="300.0" prefHeight="454.0" prefWidth="385.0" style="-fx-background-color: #d7d4d4; -fx-padding: 50; -fx-background-radius: 50;">
+                <Pane layoutX="17.0" layoutY="212.0" prefHeight="542.0" prefWidth="385.0" style="-fx-background-color: #FFE1E6; -fx-padding: 50; -fx-background-radius: 50;">
                     <children>
-                        <Line endX="162.0" layoutX="182.0" layoutY="372.0" startX="-140.5" strokeWidth="2.0" />
-                        <Label fx:id="price" layoutX="90.0" layoutY="386.0" prefHeight="58.0" prefWidth="278.0" text="Prix : 0,00 €">
+                        <Line endX="162.0" layoutX="182.0" layoutY="440.0" startX="-140.5" strokeWidth="2.0" />
+                        <Label fx:id="price" layoutX="92.0" layoutY="448.0" prefHeight="58.0" prefWidth="236.0" text="Prix : 0,00 €" textFill="#4a3c3c">
                             <font>
-                                <Font size="37.0" />
+                                <Font name="Berlin Sans FB" size="37.0" />
                             </font>
                         </Label>
-                        <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="319.0" prefWidth="354.0" style="-fx-background-color: #d7d4d4;">
+                        <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="373.0" prefWidth="354.0" style="-fx-background-color: transparent;">
                             <content>
                                 <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
                             </content>
                         </ScrollPane>
                     </children>
                 </Pane>
-                <Button fx:id="btnPayer" layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goPanier" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: pink; -fx-background-radius: 50;" text="Panier" textFill="WHITE">
+                <Button fx:id="btnPayer" layoutX="18.0" layoutY="795.0" mnemonicParsing="false" onAction="#goPanier" prefHeight="124.0" prefWidth="371.0" style="-fx-background-color: pink; -fx-background-radius: 50;" text="Panier" textFill="#614848">
                     <font>
-                        <Font name="Bauhaus 93" size="45.0" />
+                        <Font name="Berlin Sans FB" size="50.0" />
                     </font>
                 </Button>
             </children>
         </Pane>
-        <Line endX="-107.0" endY="840.0" layoutX="427.0" layoutY="270.0" startX="-107.0" startY="-274.0" strokeWidth="4.0" />
     </children>
 </AnchorPane>
