@@ -13,26 +13,37 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.shape.Rectangle;
+import javafx.application.Platform;
 
 import java.io.IOException;
 
 public class detailplatF {
 
-    @FXML private HBox proteinBox;
-    @FXML private RadioButton rbPoulet;
-    @FXML private RadioButton rbBoeuf;
-    @FXML private RadioButton rbTofu;
-    @FXML private RadioButton rbCrevette;
-    @FXML private ToggleGroup proteinGroup;
+    @FXML
+    private HBox proteinBox;
+    @FXML
+    private RadioButton rbPoulet;
+    @FXML
+    private RadioButton rbBoeuf;
+    @FXML
+    private RadioButton rbTofu;
+    @FXML
+    private RadioButton rbCrevette;
+    @FXML
+    private ToggleGroup proteinGroup;
 
 
-
-
-    @FXML private Text quantityText;
-    @FXML private ImageView imagePlat;
-    @FXML private Text afficheNom;
-    @FXML private Text afficheDesc;
-    @FXML private Text affichePrix;
+    @FXML
+    private Text quantityText;
+    @FXML
+    private ImageView imagePlat;
+    @FXML
+    private Text afficheNom;
+    @FXML
+    private Text afficheDesc;
+    @FXML
+    private Text affichePrix;
 
     private MenuItem item;
     private boolean isFrench;
@@ -40,7 +51,29 @@ public class detailplatF {
 
     @FXML
     private void initialize() {
+
         refreshQtyUI();
+
+        Rectangle clip = new Rectangle();
+        clip.setArcWidth(60);
+        clip.setArcHeight(60);
+        imagePlat.setClip(clip);
+
+        
+        Runnable updateClip = () -> {
+            var b = imagePlat.getLayoutBounds();
+            clip.setWidth(b.getWidth());
+            clip.setHeight(b.getHeight());
+        };
+
+
+        Platform.runLater(updateClip);
+
+
+        imagePlat.layoutBoundsProperty().addListener((obs, oldB, newB) -> {
+            clip.setWidth(newB.getWidth());
+            clip.setHeight(newB.getHeight());
+        });
     }
 
     @FXML
@@ -58,7 +91,6 @@ public class detailplatF {
             refreshQtyUI();
         }
     }
-
 
 
     private void hideProteinOptions() {
@@ -122,11 +154,6 @@ public class detailplatF {
     }
 
 
-
-
-
-
-
     CartModel cart = CartModel.getInstance();
 
     @FXML
@@ -162,7 +189,7 @@ public class detailplatF {
     }
 
     private void refreshQtyUI() {
-        if (quantityText != null) quantityText.setText(String.valueOf("Quantit\u00E9 : "+quantity));
+        if (quantityText != null) quantityText.setText(String.valueOf("Quantit\u00E9 : " + quantity));
 
         if (item != null && affichePrix != null) {
             double total = item.getPrice() * quantity;

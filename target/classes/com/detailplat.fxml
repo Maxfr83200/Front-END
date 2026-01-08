@@ -8,13 +8,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.detailplatF">
    <children>
-      <ImageView fx:id="imagePlat" fitHeight="724.0" fitWidth="724.0" layoutX="172.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="-4.0" layoutY="-4.0" prefHeight="1086.0" prefWidth="1930.0">
+         <children>
+            <ImageView fitHeight="1329.0" fitWidth="1997.0" layoutX="-38.0" layoutY="-52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/fond_beige5.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fx:id="imagePlat" fitHeight="624.0" fitWidth="668.0" layoutX="176.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="ajoutPanier" layoutX="1172.0" layoutY="825.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Ajouter au panier">
          <font>
             <Font size="45.0" />
