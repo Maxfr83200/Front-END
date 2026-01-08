@@ -2,6 +2,7 @@ package com;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,6 +42,8 @@ public class mainscreenF {
     private Boolean isFrench;
 
     @FXML
+    private VBox menuBox;
+    @FXML
     private Button btnTous;
     @FXML
     private Button btnPlats;
@@ -54,6 +57,10 @@ public class mainscreenF {
     private Button btnPayer;
     @FXML
     private Button btnRetour;
+
+
+    private Font normalFont;
+    private Font activeFont;
 
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
@@ -76,6 +83,8 @@ public class mainscreenF {
             if (btnRetour != null) btnRetour.setText("Return");
         }
         if (btnDesserts != null) btnDesserts.setText("Desserts");
+
+        setActiveButton(btnTous);
         filterAll(null);
     }
 
@@ -194,7 +203,26 @@ public class mainscreenF {
     }
 
     @FXML
+    private void onMenuClick(ActionEvent event) {
+        setActiveButton((Button) event.getSource());
+    }
+
+    private void setActiveButton(Button clicked) {
+        for (Node node : menuBox.getChildren()) {
+            if (node instanceof Button btn) {
+                btn.setFont(normalFont);
+            }
+        }
+        if (clicked != null) {
+            clicked.setFont(activeFont);
+        }
+    }
+
+    @FXML
     public void initialize() {
+
+        normalFont = Font.font("System", 33);
+        activeFont = Font.font("Broadway", FontWeight.NORMAL, 35);
 
 
         updateTotalprice();
@@ -216,6 +244,7 @@ public class mainscreenF {
 
 
     public void filterAll(ActionEvent e) {
+        if (e != null) setActiveButton((Button) e.getSource());
         if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/all");
         } else {
@@ -225,6 +254,7 @@ public class mainscreenF {
     }
 
     public void filterPlats(ActionEvent e) {
+        if (e != null) setActiveButton((Button) e.getSource());
         if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/plats");
         } else {
@@ -233,6 +263,7 @@ public class mainscreenF {
     }
 
     public void filterSnacks(ActionEvent e) {
+        if (e != null) setActiveButton((Button) e.getSource());
         if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/snacks");
         } else {
@@ -241,6 +272,7 @@ public class mainscreenF {
     }
 
     public void filterBoissons(ActionEvent e) {
+        if (e != null) setActiveButton((Button) e.getSource());
         if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/boissons");
         } else {
@@ -249,6 +281,7 @@ public class mainscreenF {
     }
 
     public void filterDesserts(ActionEvent e) {
+        if (e != null) setActiveButton((Button) e.getSource());
         if (Boolean.TRUE.equals(isFrench)) {
             fetchAndDisplay(API_BASE + "/fr/menu/desserts");
         } else {
