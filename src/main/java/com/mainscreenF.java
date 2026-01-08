@@ -321,7 +321,7 @@ public class mainscreenF {
             Label unavailable;
             if(Boolean.TRUE.equals(isFrench))
             {
-                unavailable = new Label("Victime de votre succ\u00E8s");
+                unavailable = new Label("Victime de son succ\u00E8s");
             }
             else{
                 unavailable = new Label("Victim of its success");

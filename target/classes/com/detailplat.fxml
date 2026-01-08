@@ -15,6 +15,11 @@
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #F3E8D2;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.detailplatF">
    <children>
       <ImageView fx:id="imagePlat" fitHeight="724.0" fitWidth="724.0" layoutX="172.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="ajoutPanier" layoutX="1172.0" layoutY="825.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Ajouter au panier">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Button>
       <VBox layoutX="1034.0" layoutY="139.0" prefHeight="380.0" prefWidth="761.0">
          <children>
             <Text fx:id="afficheNom" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom produit" wrappingWidth="870.44140625">
@@ -46,7 +51,7 @@
       <HBox fx:id="proteinBox" layoutX="1022.0" layoutY="591.0" prefHeight="87.0" prefWidth="856.0">
          <children>
 
-            <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Boeuf" onAction="#onProteinChanged">
+            <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Boeuf">
                <font>
                   <Font size="27.0" />
                </font>
@@ -54,46 +59,41 @@
                   <ToggleGroup fx:id="proteinGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rbPoulet" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup" onAction="#onProteinChanged">
+            <RadioButton fx:id="rbPoulet" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup">
                <font>
                   <Font size="27.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbCrevette" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Crevette" toggleGroup="$proteinGroup" onAction="#onProteinChanged">
+            <RadioButton fx:id="rbCrevette" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Crevette" toggleGroup="$proteinGroup">
                <font>
                   <Font size="27.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbTofu" mnemonicParsing="false" prefHeight="159.0" prefWidth="205.0" text="Tofu" toggleGroup="$proteinGroup" onAction="#onProteinChanged">
+            <RadioButton fx:id="rbTofu" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Tofu" toggleGroup="$proteinGroup">
                <font>
                   <Font size="27.0" />
                </font>
             </RadioButton>
          </children>
       </HBox>
-      <Text fx:id="quantityText" layoutX="1023.0" layoutY="758.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité : 0" textAlignment="CENTER" wrappingWidth="756.13671875">
-         <font>
-            <Font name="Calibri Italic" size="40.0" />
-         </font>
-      </Text>
-      <HBox layoutX="1016.0" layoutY="794.0" prefHeight="134.0" prefWidth="768.0">
+      <HBox layoutX="1204.0" layoutY="723.0" prefHeight="62.0" prefWidth="396.0">
          <children>
-            <Button fx:id="btnMinus" mnemonicParsing="false" onAction="#minusQty" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 100; -fx-background-color: #DD5252;" text="-">
+            <Button fx:id="btnMinus" mnemonicParsing="false" onAction="#minusQty" prefHeight="52.0" prefWidth="57.0" style="-fx-background-radius: 100; -fx-background-color: #DD5252;" text="-">
                <font>
-                  <Font name="Arial" size="64.0" />
+                  <Font name="Arial" size="30.0" />
                </font>
                <HBox.margin>
                   <Insets right="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="ajoutPanier" mnemonicParsing="false" onAction="#addToCart" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 20; -fx-background-color: #DDAD52;" text="Ajouter au panier">
+            <Text fx:id="quantityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité : 0" textAlignment="CENTER" wrappingWidth="224.13671875">
                <font>
-                  <Font size="45.0" />
+                  <Font name="Calibri Italic" size="40.0" />
                </font>
-            </Button>
-            <Button fx:id="btnPlus" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#plusQty" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 100; -fx-background-color: #31A472;" text="+">
+            </Text>
+            <Button fx:id="btnPlus" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#plusQty" prefHeight="16.0" prefWidth="4.0" style="-fx-background-radius: 100; -fx-background-color: #31A472;" text="+">
                <font>
-                  <Font name="Arial" size="64.0" />
+                  <Font name="Arial" size="30.0" />
                </font>
                <HBox.margin>
                   <Insets left="30.0" />

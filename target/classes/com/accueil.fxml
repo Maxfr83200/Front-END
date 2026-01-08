@@ -42,7 +42,7 @@
          </children>
       </HBox>
 
-      <Label fx:id="instructionLabel" layoutX="387.0" layoutY="632.0" prefHeight="254.0" prefWidth="1140.0" text="Toucher pour commencer" textFill="#513b3b">
+      <Label fx:id="instructionLabel" layoutX="387.0" layoutY="632.0" prefHeight="254.0" prefWidth="1140.0" text="Toucher pour commencer" textAlignment="CENTER" textFill="#513b3b">
          <font>
             <Font name="Bauhaus 93" size="96.0" />
          </font>
