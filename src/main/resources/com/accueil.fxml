@@ -16,7 +16,7 @@
             <Image url="@images/fond_rouge2.png" />
          </image>
       </ImageView>
-      <HBox layoutX="701.0" layoutY="848.0" prefHeight="173.0" prefWidth="294.0">
+      <HBox layoutX="734.0" layoutY="747.0" prefHeight="173.0" prefWidth="294.0">
          <children>
       
             <Button mnemonicParsing="false" onAction="#switchToFrench" prefHeight="116.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: transparent;">
@@ -24,7 +24,7 @@
                   <Font size="52.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="284.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="142.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/france.png" />
                      </image>
@@ -37,7 +37,7 @@
                   <Font size="53.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="125.0" fitWidth="194.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/pngegg.png" />
                      </image>

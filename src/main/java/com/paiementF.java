@@ -21,7 +21,7 @@ public class paiementF {
         try {
             Parent root = loader.load();
             accueilF mainCtrl = loader.getController();
-            
+
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

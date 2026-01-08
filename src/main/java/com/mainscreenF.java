@@ -361,12 +361,40 @@ public class mainscreenF {
 
         Label namePrice = new Label(item.getName() + " - " + item.getPrice() + "0\u20AC");
         namePrice.setStyle("-fx-text-fill: black; -fx-font-size: 18px;");
+
+        HBox titleLine = new HBox(6);
+        titleLine.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        titleLine.getChildren().add(namePrice);
+
+
+        if (item.isSpicy()) {
+            var is = getClass().getResourceAsStream("/com/images/spicy.png");
+            if (is != null) {
+                ImageView spicyIcon = new ImageView(new Image(is));
+                spicyIcon.setFitWidth(30);
+                spicyIcon.setFitHeight(30);
+                spicyIcon.setPreserveRatio(true);
+                titleLine.getChildren().add(spicyIcon);
+            }
+        }
+
+        if (item.isVegetarian()) {
+            var is = getClass().getResourceAsStream("/com/images/vege.png");
+            if (is != null) {
+                ImageView vegeIcon = new ImageView(new Image(is));
+                vegeIcon.setFitWidth(30);
+                vegeIcon.setFitHeight(30);
+                vegeIcon.setPreserveRatio(true);
+                titleLine.getChildren().add(vegeIcon);
+            }
+        }
         Label desc = new Label(item.getDescription());
         desc.setStyle("-fx-text-fill: black; -fx-font-size: 14px;");
         Label calories = new Label(item.getCalories() + " kcal");
         calories.setStyle("-fx-text-fill: black; -fx-font-size: 14px;");
 
-        texts.getChildren().addAll(namePrice, desc, calories);
+        texts.getChildren().addAll(titleLine, desc, calories);
+
 
 
         if (!item.isAvailable()) {
@@ -400,7 +428,7 @@ public class mainscreenF {
             card.setStyle(card.getStyle() + "-fx-background-color: #f5f5f5;");
         } else {
             card.setOnMouseClicked(e -> goDetail(e, item));
-            card.setStyle(card.getStyle() + "-fx-cursor: hand;");
+            card.setCursor(javafx.scene.Cursor.HAND);
         }
 
         return card;
