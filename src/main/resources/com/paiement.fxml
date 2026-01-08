@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane   onMouseClicked="#startCommand"  fx:controller="com.paiementF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="1080.0" prefWidth="1920.0">
          <children>
@@ -53,7 +53,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <Text fill="#bc8282" layoutX="600.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro de commande #1234" wrappingWidth="740.13671875">
+            <Text fill="#bc8282" layoutX="600.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro de commande #CB12" wrappingWidth="740.13671875">
                <font>
                   <Font name="Berlin Sans FB" size="58.0" />
                </font>
