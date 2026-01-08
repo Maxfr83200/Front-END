@@ -79,10 +79,10 @@ public class confirmationF {
     }
 
 
-    public void retourAcceuil(ActionEvent event) {
+    public void goPaiement(ActionEvent event) {
         CartModel.getInstance().clear();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/accueil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/paiement.fxml"));
         try {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
