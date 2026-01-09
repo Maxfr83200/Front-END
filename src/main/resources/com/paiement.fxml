@@ -52,7 +52,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <Text fx:id="textnumCommande" fill="#bc8282" layoutX="600.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro de commande #CB12" wrappingWidth="740.13671875">
+            <Text fx:id="textnumCommande" fill="#bc8282" layoutX="592.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro de commande #CB12" wrappingWidth="888.13671875">
                <font>
                   <Font name="Berlin Sans FB" size="58.0" />
                </font>

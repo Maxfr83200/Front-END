@@ -8,9 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
@@ -28,6 +30,8 @@ public class detailplatF {
     @FXML private RadioButton rbCrevette;
     @FXML private ToggleGroup proteinGroup;
     @FXML private Button btnAjoutPanier;
+    @FXML private Button btnPlus;
+    @FXML private Button btnMinus;
 
 
     @FXML
@@ -40,6 +44,7 @@ public class detailplatF {
     private Text afficheDesc;
     @FXML
     private Text affichePrix;
+
 
     private MenuItem item;
     private boolean isFrench;
@@ -88,6 +93,22 @@ public class detailplatF {
             clip.setWidth(newB.getWidth());
             clip.setHeight(newB.getHeight());
         });
+
+        InnerShadow clickEffect = new InnerShadow();
+        clickEffect.setRadius(10.0);
+        clickEffect.setOffsetX(3.0);
+        clickEffect.setOffsetY(3.0);
+        clickEffect.setColor(Color.rgb(0, 0, 0, 0.6));
+
+        Button[] buttons = {btnAjoutPanier, btnMinus, btnPlus};
+
+        for (Button b : buttons) {
+            if (b != null) {
+                b.setOnMousePressed(e -> b.setEffect(clickEffect));
+                b.setOnMouseReleased(e -> b.setEffect(null));
+                b.setOnMouseExited(e -> b.setEffect(null));
+            }
+        }
     }
 
     @FXML
