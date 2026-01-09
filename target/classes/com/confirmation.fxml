@@ -20,7 +20,7 @@
                   <Image url="@images/fond_beige.png" />
                </image>
             </ImageView>
-            <Label fx:id="price" layoutX="255.0" layoutY="929.0" prefHeight="68.0" prefWidth="406.0" text="Total : 0,00 €">
+            <Label fx:id="price" layoutX="255.0" layoutY="929.0" prefHeight="68.0" prefWidth="454.0" text="Total : 0,00 €">
                <font>
                   <Font name="Berlin Sans FB" size="61.0" />
                </font>

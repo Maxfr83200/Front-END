@@ -1,8 +1,10 @@
 com\adminF$1$1.class
 com\App.class
 com\panierF.class
+com\panierF$ControllerConsumer.class
 com\adminF$2.class
 com\CartModel.class
+com\confirmationF$ControllerConsumer.class
 com\mainscreenF$1.class
 com\adminF$1.class
 com\accueilF.class
