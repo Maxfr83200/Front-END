@@ -41,6 +41,8 @@ public class confirmationF {
         if (cart.getQuantities().isEmpty()) {
             btnPayer.setDisable(true);
         }
+
+
     }
 
     CartModel cart = CartModel.getInstance();

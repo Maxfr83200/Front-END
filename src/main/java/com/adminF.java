@@ -25,6 +25,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.effect.InnerShadow;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -150,6 +152,26 @@ public class adminF {
                 if (corner != null) corner.setStyle("-fx-background-color: transparent;");
             }
         });
+
+        InnerShadow clickEffect = new InnerShadow();
+        clickEffect.setRadius(10.0);
+        clickEffect.setOffsetX(3.0);
+        clickEffect.setOffsetY(3.0);
+        clickEffect.setColor(Color.rgb(0, 0, 0, 0.6));
+
+        if (btnEnregistrer != null) {
+            btnEnregistrer.setOnMousePressed(event -> {
+                btnEnregistrer.setEffect(clickEffect);
+            });
+
+            btnEnregistrer.setOnMouseReleased(event -> {
+                btnEnregistrer.setEffect(null);
+            });
+
+            btnEnregistrer.setOnMouseExited(event -> {
+                btnEnregistrer.setEffect(null);
+            });
+        }
     }
 
 

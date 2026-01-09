@@ -130,7 +130,7 @@ public class mainscreenF {
             text += " - " + String.format("%.2f \u20AC", item.getPrice() * qty);
 
             Label label = new Label(text);
-            label.setStyle("-fx-font-size: 18px;");
+            label.setStyle("-fx-font-size: 18px; -fx-text-fill: #4a3c3c;");
             cartContainer.getChildren().add(label);
         }
 
@@ -430,7 +430,13 @@ public class mainscreenF {
             texts.getChildren().add(unavailable);
         }
 
-        Button btnQuickAdd = new Button("Ajouter");
+        Button btnQuickAdd;
+        if(Boolean.TRUE.equals(isFrench)){
+            btnQuickAdd = new Button("Ajouter");
+        }
+        else {
+            btnQuickAdd = new Button("Add");
+        }
         btnQuickAdd.setStyle("-fx-background-color: #60834E; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-background-radius: 20; -fx-min-width: 200; -fx-min-height: 40;");
 
         // Action du bouton

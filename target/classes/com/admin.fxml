@@ -20,18 +20,18 @@
          </image>
       </ImageView>
 
-      <Label fx:id="textTitle" layoutX="242.0" layoutY="4.0" prefHeight="150.0" prefWidth="750.0" text="Interface admin" textFill="#f3e8d2">
+      <Label fx:id="textTitle" layoutX="230.0" layoutY="18.0" prefHeight="150.0" prefWidth="750.0" text="Interface admin" textFill="#f3e8d2">
          <font>
             <Font name="Bauhaus 93" size="90.0" />
          </font>
       </Label>
 
-      <Button fx:id="btnEnregistrer" layoutX="1427.0" layoutY="898.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="113.0" prefWidth="323.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Enregistrer" textFill="#5b4949">
+      <Button fx:id="btnEnregistrer" layoutX="1375.0" layoutY="898.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="61.0" prefWidth="327.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Enregistrer" textFill="#543939">
          <font>
-            <Font size="53.0" />
+            <Font name="Berlin Sans FB" size="48.0" />
          </font>
       </Button>
-      <VBox layoutX="1290.0" layoutY="181.0" prefHeight="593.0" prefWidth="439.0">
+      <VBox layoutX="1202.0" layoutY="199.0" prefHeight="621.0" prefWidth="493.0">
          <children>
             <Label fx:id="textNom" prefHeight="105.0" prefWidth="624.0" text="Nom" textFill="#f3e8d2">
                <font>
@@ -67,25 +67,25 @@
                   <Font name="Berlin Sans FB" size="45.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="dispo" prefHeight="105.0" prefWidth="166.0" />
+            <ChoiceBox fx:id="dispo" prefHeight="102.0" prefWidth="184.0" style="-fx-font-size: 20px;" />
          </children>
       </VBox>
-      <ScrollPane fx:id="menuScroll" fitToWidth="true" layoutX="254.0" layoutY="218.0" prefHeight="699.0" prefWidth="680.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+      <ScrollPane fx:id="menuScroll" fitToWidth="true" layoutX="193.0" layoutY="268.0" prefHeight="693.0" prefWidth="798.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER">
          <content>
             <VBox fx:id="menuContainer" spacing="10" />
          </content>
       </ScrollPane>
-      <Label fx:id="textRecherche" layoutX="246.0" layoutY="140.0" prefHeight="50.0" prefWidth="227.0" text="Recherche ID" textFill="#f3e8d2">
+      <Label fx:id="textRecherche" layoutX="210.0" layoutY="176.0" prefHeight="50.0" prefWidth="227.0" text="Recherche ID" textFill="#f3e8d2">
          <font>
             <Font name="Berlin Sans FB" size="40.0" />
          </font>
       </Label>
-      <TextField fx:id="searchID" layoutX="472.0" layoutY="142.0" onAction="#filterID" prefHeight="52.0" prefWidth="69.0" style="-fx-background-radius: 30;">
+      <TextField fx:id="searchID" layoutX="469.0" layoutY="178.0" onAction="#filterID" prefHeight="52.0" prefWidth="69.0" style="-fx-background-radius: 30;">
          <font>
             <Font size="25.0" />
          </font>
       </TextField>
-      <Button fx:id="retourEcranMenu" layoutX="98.0" layoutY="48.0" mnemonicParsing="false" onAction="#retourAcceuil" prefHeight="56.0" prefWidth="96.0" style="-fx-background-radius: 50;">
+      <Button fx:id="retourEcranMenu" layoutX="74.0" layoutY="65.0" mnemonicParsing="false" onAction="#retourAcceuil" prefHeight="56.0" prefWidth="96.0" style="-fx-background-radius: 50; -fx-background-color: #FFECCC;">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>

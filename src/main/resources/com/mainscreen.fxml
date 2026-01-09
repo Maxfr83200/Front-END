@@ -21,7 +21,7 @@
                         <Image url="@images/fond_beige.png" />
                     </image>
                 </ImageView>
-                <ScrollPane fx:id="menuScroll" fitToWidth="true" layoutX="92.0" layoutY="92.0" prefHeight="899.0" prefWidth="989.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+                <ScrollPane fx:id="menuScroll" fitToWidth="true" layoutX="92.0" layoutY="92.0" prefHeight="899.0" prefWidth="989.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="NEVER">
                     <content>
                         <VBox fx:id="menuContainer" spacing="10" />
                     </content>
@@ -97,7 +97,7 @@
                                 <Font name="Berlin Sans FB" size="37.0" />
                             </font>
                         </Label>
-                        <ScrollPane layoutX="14.0" layoutY="38.0" prefHeight="373.0" prefWidth="354.0" style="-fx-background-color: transparent;">
+                        <ScrollPane layoutX="31.0" layoutY="36.0" prefHeight="372.0" prefWidth="317.0" style="-fx-background-color: transparent; -fx-background: transparent;">
                             <content>
                                 <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
                             </content>
