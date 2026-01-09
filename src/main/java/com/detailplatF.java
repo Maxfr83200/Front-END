@@ -264,6 +264,11 @@ public class detailplatF {
             case "Boeuf" -> setProteinImage("boeuf");
             case "Tofu" -> setProteinImage("tofu");
             case "Crevette" -> setProteinImage("crevette");
+            case "Chicken" -> setProteinImage("poulet");
+            case "Beef" -> setProteinImage("boeuf");
+            case "Shrimp" -> setProteinImage("crevette");
+
+
         }
     }
 

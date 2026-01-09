@@ -396,7 +396,7 @@ public class adminF {
 
         VBox texts = new VBox(4);
 
-        Label l1 = new Label("ID: " + item.getId() + " - " + item.getName() + " - " + item.getPrice() + "0€");
+        Label l1 = new Label("ID: " + item.getId() + " - " + item.getName() + " - " + item.getPrice() + "0\u20AC");
         Label l2 = new Label(item.getDescription());
         Label l3 = new Label(item.getCalories() + " kcal");
 

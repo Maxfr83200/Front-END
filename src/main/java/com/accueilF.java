@@ -30,7 +30,7 @@ public class accueilF {
     // =========================
     // Composants FXML
     // =========================
-    @FXML private Label instructionLabel;
+    @FXML private Button instructionLabel;
     @FXML private TextField codeAdmin;
     @FXML private Button btnAdmin;
 
