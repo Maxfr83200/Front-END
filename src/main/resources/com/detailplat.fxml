@@ -22,24 +22,52 @@
                   <Image url="@images/fond_beige5.png" />
                </image>
             </ImageView>
+            <Button fx:id="btnAjoutPanier" layoutX="1180.0" layoutY="809.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="105.0" prefWidth="447.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Ajouter au panier">
+               <font>
+                  <Font name="Berlin Sans FB" size="40.0" />
+               </font>
+            </Button>
+            <HBox fx:id="proteinBox" layoutX="1028.0" layoutY="594.0" prefHeight="87.0" prefWidth="856.0">
+               <children>
+      
+                  <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Boeuf">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="proteinGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbPoulet" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="rbCrevette" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Crevette" toggleGroup="$proteinGroup">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="rbTofu" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Tofu" toggleGroup="$proteinGroup">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
          </children>
       </Pane>
       <ImageView fx:id="imagePlat" fitHeight="624.0" fitWidth="668.0" layoutX="176.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnAjoutPanier" layoutX="1172.0" layoutY="825.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="137.0" prefWidth="443.0" style="-fx-background-radius: 50; -fx-background-color: pink;" text="Ajouter au panier">
-         <font>
-            <Font size="45.0" />
-         </font>
-      </Button>
       <VBox layoutX="1034.0" layoutY="139.0" prefHeight="380.0" prefWidth="761.0">
          <children>
-            <Text fx:id="afficheNom" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom produit" wrappingWidth="870.44140625">
+            <Text fx:id="afficheNom" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom produit" wrappingWidth="788.44140625">
                <font>
                   <Font name="Bauhaus 93" size="80.0" />
                </font>
             </Text>
-            <Text fx:id="afficheDesc" layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" wrappingWidth="866.44140625">
+            <Text fx:id="afficheDesc" layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description" wrappingWidth="794.44140625">
                <font>
-                  <Font size="47.0" />
+                  <Font name="Berlin Sans FB" size="46.0" />
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -58,34 +86,6 @@
       <fx:define>
          <ToggleGroup fx:id="proteinGroup" />
       </fx:define>
-      <HBox fx:id="proteinBox" layoutX="1022.0" layoutY="591.0" prefHeight="87.0" prefWidth="856.0">
-         <children>
-
-            <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Boeuf">
-               <font>
-                  <Font size="27.0" />
-               </font>
-               <toggleGroup>
-                  <ToggleGroup fx:id="proteinGroup" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="rbPoulet" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="rbCrevette" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Crevette" toggleGroup="$proteinGroup">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="rbTofu" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Tofu" toggleGroup="$proteinGroup">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </RadioButton>
-         </children>
-      </HBox>
       <HBox layoutX="1204.0" layoutY="723.0" prefHeight="62.0" prefWidth="396.0">
          <children>
             <Button fx:id="btnMinus" mnemonicParsing="false" onAction="#minusQty" prefHeight="52.0" prefWidth="57.0" style="-fx-background-radius: 100; -fx-background-color: #DD5252;" text="-">
@@ -100,6 +100,9 @@
                <font>
                   <Font name="Calibri Italic" size="40.0" />
                </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
             </Text>
             <Button fx:id="btnPlus" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#plusQty" prefHeight="16.0" prefWidth="4.0" style="-fx-background-radius: 100; -fx-background-color: #31A472;" text="+">
                <font>

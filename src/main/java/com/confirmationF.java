@@ -8,8 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -42,25 +44,31 @@ public class confirmationF {
             btnPayer.setDisable(true);
         }
 
+        InnerShadow clickEffect = new InnerShadow();
+        clickEffect.setRadius(10.0);
+        clickEffect.setOffsetX(3.0);
+        clickEffect.setOffsetY(3.0);
+        clickEffect.setColor(Color.rgb(0, 0, 0, 0.6));
 
+        if (btnPayer != null) {
+            // Applique l'effet quand on appuie
+            btnPayer.setOnMousePressed(event -> {
+                btnPayer.setEffect(clickEffect);
+            });
+
+            // Retire l'effet quand on relâche
+            btnPayer.setOnMouseReleased(event -> {
+                btnPayer.setEffect(null);
+            });
+
+            // Sécurité : retire l'effet si la souris quitte le bouton
+            btnPayer.setOnMouseExited(event -> {
+                btnPayer.setEffect(null);
+            });
+        }
     }
 
     CartModel cart = CartModel.getInstance();
-
-
-
-    private HBox createCardtoCart(MenuItem item, int qty) {
-
-        Label label = new Label(qty + " x " + item.getName() + "  -  " +
-                String.format("%.2f \u20AC", item.getPrice() * qty));
-        label.setStyle("-fx-font-size: 16px;");
-
-        HBox card = new HBox(label);
-        card.setMaxWidth(Double.MAX_VALUE);
-        card.setStyle("-fx-padding: 6;");
-
-        return card;
-    }
 
     @FXML
     private VBox cartContainer;
@@ -88,7 +96,7 @@ public class confirmationF {
             text += " - " + String.format("%.2f \u20AC", item.getPrice() * qty);
 
             Label label = new Label(text);
-            label.setStyle("-fx-font-size: 25px;");
+            label.setStyle("-fx-font-size: 40px; -fx-text-fill: #1C1816; -fx-font-family: Berlin Sans FB");
             cartContainer.getChildren().add(label);
         }
 
