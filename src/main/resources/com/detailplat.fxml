@@ -27,16 +27,16 @@
                   <Font name="Berlin Sans FB" size="40.0" />
                </font>
             </Button>
+            <fx:define>
+               <ToggleGroup fx:id="proteinGroup" />
+            </fx:define>
             <HBox fx:id="proteinBox" layoutX="1028.0" layoutY="594.0" prefHeight="87.0" prefWidth="856.0">
                <children>
       
-                  <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Boeuf">
+                  <RadioButton fx:id="rbBoeuf" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Boeuf" toggleGroup="$proteinGroup">
                      <font>
                         <Font size="27.0" />
                      </font>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="proteinGroup" />
-                     </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="rbPoulet" mnemonicParsing="false" onAction="#onProteinChanged" prefHeight="159.0" prefWidth="205.0" text="Poulet" toggleGroup="$proteinGroup">
                      <font>
@@ -83,9 +83,7 @@
             </Text>
          </children>
       </VBox>
-      <fx:define>
-         <ToggleGroup fx:id="proteinGroup" />
-      </fx:define>
+
       <HBox layoutX="1204.0" layoutY="723.0" prefHeight="62.0" prefWidth="396.0">
          <children>
             <Button fx:id="btnMinus" mnemonicParsing="false" onAction="#minusQty" prefHeight="52.0" prefWidth="57.0" style="-fx-background-radius: 100; -fx-background-color: #DD5252;" text="-">

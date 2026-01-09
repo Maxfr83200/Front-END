@@ -92,7 +92,7 @@
                 <Pane layoutX="17.0" layoutY="212.0" prefHeight="542.0" prefWidth="385.0" style="-fx-background-color: #FFE1E6; -fx-padding: 50; -fx-background-radius: 50;">
                     <children>
                         <Line endX="162.0" layoutX="182.0" layoutY="440.0" startX="-140.5" strokeWidth="2.0" />
-                        <Label fx:id="price" layoutX="92.0" layoutY="448.0" prefHeight="58.0" prefWidth="236.0" text="Prix : 0,00 €" textFill="#4a3c3c">
+                        <Label fx:id="price" layoutX="92.0" layoutY="448.0" prefHeight="58.0" prefWidth="282.0" text="Prix : 0,00 €" textFill="#4a3c3c">
                             <font>
                                 <Font name="Berlin Sans FB" size="37.0" />
                             </font>

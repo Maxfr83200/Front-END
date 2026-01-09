@@ -45,21 +45,35 @@ public class detailplatF {
     // =========================
     // Composants FXML
     // =========================
-    @FXML private HBox proteinBox;
-    @FXML private RadioButton rbPoulet;
-    @FXML private RadioButton rbBoeuf;
-    @FXML private RadioButton rbTofu;
-    @FXML private RadioButton rbCrevette;
-    @FXML private ToggleGroup proteinGroup;
-    @FXML private Button btnAjoutPanier;
-    @FXML private Button btnPlus;
-    @FXML private Button btnMinus;
+    @FXML
+    private HBox proteinBox;
+    @FXML
+    private RadioButton rbPoulet;
+    @FXML
+    private RadioButton rbBoeuf;
+    @FXML
+    private RadioButton rbTofu;
+    @FXML
+    private RadioButton rbCrevette;
+    @FXML
+    private ToggleGroup proteinGroup;
+    @FXML
+    private Button btnAjoutPanier;
+    @FXML
+    private Button btnPlus;
+    @FXML
+    private Button btnMinus;
 
-    @FXML private Text quantityText;
-    @FXML private ImageView imagePlat;
-    @FXML private Text afficheNom;
-    @FXML private Text afficheDesc;
-    @FXML private Text affichePrix;
+    @FXML
+    private Text quantityText;
+    @FXML
+    private ImageView imagePlat;
+    @FXML
+    private Text afficheNom;
+    @FXML
+    private Text afficheDesc;
+    @FXML
+    private Text affichePrix;
 
     // =========================
     // État
@@ -118,8 +132,8 @@ public class detailplatF {
     /**
      * Applique un clip arrondi (coins arrondis) sur une ImageView et le met à jour quand sa taille change.
      *
-     * @param view     ImageView à découper
-     * @param arcSize  taille des arrondis
+     * @param view    ImageView à découper
+     * @param arcSize taille des arrondis
      */
     private void setupRoundedImageClip(ImageView view, double arcSize) {
         if (view == null) return;
@@ -243,12 +257,13 @@ public class detailplatF {
     @FXML
     private void onProteinChanged() {
         if (proteinGroup.getSelectedToggle() == null || item == null) return;
-
         RadioButton selected = (RadioButton) proteinGroup.getSelectedToggle();
-        String proteinCode = mapProteinLabelToCode(selected.getText());
-
-        if (proteinCode != null) {
-            setProteinImage(proteinCode);
+        String protein = selected.getText();
+        switch (protein) {
+            case "Poulet" -> setProteinImage("poulet");
+            case "Boeuf" -> setProteinImage("boeuf");
+            case "Tofu" -> setProteinImage("tofu");
+            case "Crevette" -> setProteinImage("crevette");
         }
     }
 
@@ -277,12 +292,9 @@ public class detailplatF {
      *
      * @param proteinCode code d'image (boeuf/poulet/tofu/crevette)
      */
-    private void setProteinImage(String proteinCode) {
-        if (item == null || item.getImageUrl() == null) return;
-
+    private void setProteinImage(String protein) {
         String baseName = item.getImageUrl().replace(".png", "");
-        String path = "/" + baseName + "_" + proteinCode + ".png";
-
+        String path = "/" + baseName + "_" + protein + ".png";
         var stream = getClass().getResourceAsStream(path);
         if (stream != null) {
             imagePlat.setImage(new Image(stream));
