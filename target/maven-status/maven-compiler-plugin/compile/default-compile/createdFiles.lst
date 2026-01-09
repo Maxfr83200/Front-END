@@ -9,6 +9,7 @@ com\accueilF.class
 com\detailplatF.class
 com\MenuItem.class
 com\paiementF.class
+com\accueilF$ControllerConsumer.class
 com\mainscreenF.class
 com\mainscreenF$1$1.class
 com\adminF$MenuItemUpdateRequest.class
