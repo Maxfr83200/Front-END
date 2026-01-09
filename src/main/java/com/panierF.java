@@ -14,12 +14,42 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.InnerShadow;
+import javafx.scene.paint.Color;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 public class panierF {
 
     private Boolean isFrench;
     @FXML private Label textTitle;
     @FXML private Button btnConfirmer;
+
+    @FXML
+    public void initialize() {
+        updateTotalprice();
+        refreshCartUI();
+
+        InnerShadow clickEffect = new InnerShadow();
+        clickEffect.setRadius(10.0);
+        clickEffect.setOffsetX(3.0);
+        clickEffect.setOffsetY(3.0);
+        clickEffect.setColor(Color.rgb(0, 0, 0, 0.6));
+
+        if (btnConfirmer != null) {
+            btnConfirmer.setOnMousePressed(event -> {
+                btnConfirmer.setEffect(clickEffect);
+            });
+
+            btnConfirmer.setOnMouseReleased(event -> {
+                btnConfirmer.setEffect(null);
+            });
+
+            btnConfirmer.setOnMouseExited(event -> {
+                btnConfirmer.setEffect(null);
+            });
+        }
+    }
 
     public void setLanguage(Boolean isFrench) {
         this.isFrench = isFrench;
@@ -33,12 +63,6 @@ public class panierF {
         }
     }
 
-
-    @FXML
-    public void initialize() {
-        updateTotalprice();
-        refreshCartUI();
-    }
 
     CartModel cart = CartModel.getInstance();
 
@@ -69,87 +93,91 @@ public class panierF {
 
 
     private void refreshCartUI() {
+        // 1. On nettoie le conteneur
         cartContainer.getChildren().clear();
+
+        // TRÈS IMPORTANT : Force la VBox à étirer ses enfants horizontalement
+        cartContainer.setFillWidth(true);
 
         CartModel cart = CartModel.getInstance();
 
-
+        // 2. Gestion du panier vide
         if (cart.getQuantities().isEmpty()) {
-            Label empty = new Label("Votre panier est vide");
-            if (Boolean.TRUE.equals(isFrench)) {
-                empty = new Label("Votre panier est vide");
-            } else {
-                empty = new Label("Your cart is empty");
-            }
-            empty.setStyle("-fx-font-size: 18px; -fx-text-fill: grey;");
+            Label empty = new Label(Boolean.TRUE.equals(isFrench) ? "Votre panier est vide" : "Your cart is empty");
+            empty.setStyle("-fx-font-size: 18px; -fx-text-fill: grey; -fx-padding: 20;");
             cartContainer.getChildren().add(empty);
             updateTotalprice();
             return;
         }
 
+        // 3. Boucle sur les articles
         for (String key : cart.getQuantities().keySet()) {
             MenuItem item = cart.getItem(key);
             int qty = cart.getQuantities().get(key);
             String protein = cart.getProteinFromKey(key);
 
-
+            // --- GAUCHE : INFOS ---
             String nomPlat = item.getName();
             if (protein != null) nomPlat += " (" + protein + ")";
 
             Label nameLabel = new Label(nomPlat);
-            nameLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
+            nameLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #333333;");
 
             Label priceLabel = new Label(String.format("%.2f \u20AC", item.getPrice() * qty));
-            priceLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #555;");
+            priceLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: #555555;");
 
-            VBox infoBox = new VBox(nameLabel, priceLabel);
-            infoBox.setPrefWidth(200);
+            VBox infoBox = new VBox(5, nameLabel, priceLabel);
+            infoBox.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
 
+            // --- MILIEU : LE RESSORT (SPACER) ---
+            Region spacer = new Region();
+            HBox.setHgrow(spacer, Priority.ALWAYS);
+
+            // --- DROITE : BOUTONS ---
             Button btnMinus = new Button("-");
             Button btnPlus = new Button("+");
             Button btnDelete = new Button("X");
             Label qtyLabel = new Label(String.valueOf(qty));
 
-            btnMinus.setStyle("-fx-min-width: 30px; -fx-background-color: #f0f0f0;");
-            btnPlus.setStyle("-fx-min-width: 30px; -fx-background-color: #f0f0f0;");
-            btnDelete.setStyle("-fx-background-color: #ff4444; -fx-text-fill: white; -fx-font-weight: bold;");
-            qtyLabel.setStyle("-fx-font-size: 16px; -fx-padding: 0 10 0 10;");
+            btnMinus.setStyle("-fx-min-width: 35px; -fx-background-radius: 5; -fx-cursor: hand;");
+            btnPlus.setStyle("-fx-min-width: 35px; -fx-background-radius: 5; -fx-cursor: hand;");
+            btnDelete.setStyle("-fx-background-color: #ff4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;");
+            qtyLabel.setStyle("-fx-font-size: 16px; -fx-padding: 0 10 0 10; -fx-text-fill: #333333;");
 
-            btnMinus.setOnAction(e -> {
-                cart.decreaseQuantity(key);
-                refreshCartUI();
-                updateTotalprice();
-            });
+            // Effets au clic
+            InnerShadow clickEffect = new InnerShadow(5, 2, 2, Color.rgb(0,0,0,0.6));
+            for (Button b : new Button[]{btnMinus, btnPlus, btnDelete}) {
+                b.setOnMousePressed(e -> b.setEffect(clickEffect));
+                b.setOnMouseReleased(e -> b.setEffect(null));
+            }
 
-            btnPlus.setOnAction(e -> {
-                cart.increaseQuantity(key);
-                refreshCartUI();
-                updateTotalprice();
-            });
+            // Actions
+            btnPlus.setOnAction(e -> { cart.increaseQuantity(key); refreshCartUI(); });
+            btnMinus.setOnAction(e -> { cart.decreaseQuantity(key); refreshCartUI(); });
+            btnDelete.setOnAction(e -> { cart.removeItem(key); refreshCartUI(); });
 
-            btnDelete.setOnAction(e -> {
-                cart.removeItem(key);
-                refreshCartUI();
-                updateTotalprice();
-            });
+            HBox controls = new HBox(10, btnMinus, qtyLabel, btnPlus, new Label("  "), btnDelete);
+            controls.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
 
-            // --- 4. Assemblage final dans une ligne (HBox) ---
-            HBox row = new HBox(10); // Espace de 10px entre les éléments
+            // --- ASSEMBLAGE DE LA CARTE ---
+            HBox row = new HBox();
             row.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
-            row.setStyle("-fx-padding: 10; -fx-border-color: #eee; -fx-border-width: 0 0 1 0;");
 
-            // Ordre : Infos | - | Qty | + | Espace | X
-            HBox buttonsBox = new HBox(5, btnMinus, qtyLabel, btnPlus);
-            buttonsBox.setAlignment(javafx.geometry.Pos.CENTER);
+            // TRÈS IMPORTANT : Autorise la ligne à s'étendre horizontalement
+            row.setMaxWidth(Double.MAX_VALUE);
 
-            row.getChildren().addAll(infoBox, buttonsBox, new Label("   "), btnDelete);
+            row.setStyle("-fx-padding: 15; -fx-background-color: white; -fx-background-radius: 10; " +
+                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);");
+
+            row.getChildren().addAll(infoBox, spacer, controls);
+
+            // Ajout d'une marge pour ne pas que la carte touche les bords de la boîte
+            VBox.setMargin(row, new javafx.geometry.Insets(5, 10, 5, 10));
 
             cartContainer.getChildren().add(row);
         }
-
         updateTotalprice();
     }
-
 
     public void goConfirmation(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/confirmation.fxml"));

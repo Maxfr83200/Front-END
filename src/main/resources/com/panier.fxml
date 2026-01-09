@@ -19,7 +19,7 @@
                   <Image url="@images/fond_beige.png" />
                </image>
             </ImageView>
-            <Label fx:id="price" layoutX="650.0" layoutY="827.0" prefHeight="83.0" prefWidth="438.0" text="Total : 0,00 €">
+            <Label fx:id="price" layoutX="648.0" layoutY="863.0" prefHeight="83.0" prefWidth="438.0" text="Total : 0,00 €">
                <font>
                   <Font name="Bauhaus 93" size="58.0" />
                </font>
@@ -29,26 +29,26 @@
                   <Font name="Bauhaus 93" size="75.0" />
                </font>
             </Label>
-            <Button fx:id="btnConfirmer" layoutX="1091.0" layoutY="819.0" mnemonicParsing="false" onAction="#goConfirmation" prefHeight="92.0" prefWidth="333.0" style="-fx-background-color: pink; -fx-background-radius: 50;" text="Confirmer">
+            <Button fx:id="btnConfirmer" layoutX="1077.0" layoutY="852.0" mnemonicParsing="false" onAction="#goConfirmation" prefHeight="92.0" prefWidth="333.0" style="-fx-background-color: pink; -fx-background-radius: 50;" text="Confirmer">
                <font>
                   <Font size="40.0" />
                </font>
             </Button>
+            <Button fx:id="retourEcranMenu" layoutX="-262.0" layoutY="51.0" mnemonicParsing="false" onAction="#goMain" prefHeight="56.0" prefWidth="96.0" style="-fx-background-radius: 50; -fx-background-color: pink;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/retour.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ScrollPane hbarPolicy="NEVER" layoutX="-179.0" layoutY="161.0" prefHeight="819.0" prefWidth="730.0" style="-fx-background-color: transparent; -fx-background: transparent; -fx-background-radius: 30;" vbarPolicy="NEVER">
+               <content>
+                  <VBox fx:id="cartContainer" prefHeight="824.0" prefWidth="726.0" spacing="1" style="-fx-background-color: transparent; -fx-background-radius: 20;" />
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
-      <Button fx:id="retourEcranMenu" layoutX="72.0" layoutY="32.0" mnemonicParsing="false" onAction="#goMain" prefHeight="56.0" prefWidth="96.0" style="-fx-background-radius: 50;">
-         <graphic>
-            <ImageView fitHeight="48.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/retour.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <ScrollPane layoutX="118.0" layoutY="153.0" prefHeight="765.0" prefWidth="748.0" style="-fx-background-color: #d7d4d4;">
-         <content>
-            <VBox fx:id="cartContainer" spacing="1" style="-fx-background-color: transparent;" />
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>
